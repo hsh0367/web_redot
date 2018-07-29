@@ -1,0 +1,359 @@
+@import url(https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css);
+
+.noto {
+    font-family: 'Noto Sans Korean', sans-serif;
+}
+
+*{
+    font-family: 'Noto Sans Korean', sans-serif;
+}
+  .img{
+  height: 500px;
+  object-fit: contain;
+  mix-blend-mode: undefined;
+    position: relative;
+    background-image: url(../asset/image-top-business@3x.png);
+    background-size: cover;
+}
+.img-cover{
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   background-color: rgba(0, 0, 0, 0.4);
+   z-index:1;
+}
+.img .content{
+     position: absolute;
+     top:50%;
+     left:40%;
+     transform: translate(-50%, -50%);
+     font-size:1rem;
+     color: white;
+     z-index: 2;
+}
+
+.img .content h1{
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fffefe;
+  margin-bottom:25px;
+}
+.img .content h2{
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fffefe;
+  margin-bottom:75px;
+}
+.img .content p{
+
+    margin:5px;
+    padding:0px;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fffefe;
+}
+
+.red{
+    color:#dd4545;
+}
+.topnav {
+  padding-left:20%;
+  padding-right:20%;
+    overflow: hidden;
+    background-color: #2d2d2d;
+}
+/* topnav logo */
+.top-logo {
+  padding: 19px 67px 27px 0px;
+  float: left;
+  width: 84px; !important
+  height: 43px;!important
+  object-fit: contain;
+  mix-blend-mode: undefined;
+}
+.topnav .list {
+  padding: 31px 19px 30px;
+  font-size: 20px;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+}
+#topnav{
+color: #dd4545;
+float: right;
+}
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+.space{
+    margin-bottom : 50px;
+}
+.space h1{
+       margin-bottom : 25px;
+}
+.background{
+  height: auto;
+  mix-blend-mode: undefined;
+  background-color: #f6f6f6;
+  text-align:center;
+  padding-bottom:40px;
+}
+.side {
+    float: left;
+    width: 20%;
+    padding: 15px;
+}
+.content02{
+    margin-top:75px;
+ padding-top:0px;
+  display:inline-block;
+ text-align : center;
+}
+.content02 h1 {
+  font-size: 33px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #2d2d2d;
+  }
+.content02 p{
+
+  font-size: 17px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  color: #2d2d2d;
+  text-align : center;
+
+}
+.gallerycover{
+    margin-top:80px;
+    margin-bottom:60px;
+}
+.gallery {
+    margin: 0 auto;
+    margin-left:20px;
+    margin-right:20px;
+    display:block;
+    float: left;
+    padding-top: 41px;
+    padding-bottom:20px;
+    text-align: center;
+}
+.gallery img {
+    width:125px;
+    height: 125px;
+}
+.desc {
+
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #2d2d2d;
+    padding:38px 0px 31px 0px;
+    text-align: center;
+}
+.text {
+
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #2d2d2d;
+    text-align: center;
+}
+.content03{
+
+ text-align : center;
+}
+.content03 .t00{
+    padding-top: 66px;
+}
+.content03 .t01{
+    padding-top: 96px;
+}
+.content03 .t02{
+    padding-top: 52px;
+}
+.content03 .t03{
+    padding-top: 52px;
+}
+.content03 .t04{
+    margin-bottom: 89px;
+
+}
+.content03 h1 {
+
+  font-size: 30px;
+  font-weight:900;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  color: #2d2d2d;
+  padding-top:8px;
+
+  }
+.content03 p{
+
+  font-size: 17px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  color: #2d2d2d;
+}
+.content04{
+    background-color: #2d2d2d;
+    height: 393px;
+    text-align:center;
+    padding-top:94px;
+    padding-bottom:90px;
+}
+.content04 h1{
+
+  font-size: 33px;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  margin-bottom:77px;
+}
+.content04 p{
+
+  font-size: 20px;
+  font-style: normal;
+
+  font-stretch: normal;
+  color: #ffffff;
+}
+.content05{
+
+}
+.text05{
+    color:#dd4545;
+    text-align:center;
+    padding-bottom:50px;
+}
+.text05 h1{
+  mix-blend-mode: undefined;
+
+  font-size: 33px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #dd4545;
+  color: var(--pale-red);
+}
+.text05 p{
+ mix-blend-mode: undefined;
+
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+
+  letter-spacing: normal;
+  text-align: center;
+  color: #dd4545;
+  color: var(--pale-red)
+}
+.content06{
+
+      padding-bottom:5px;
+        background-color: #f6f6f6;
+
+}
+.background2{
+  padding-top:80px;
+  padding-bottom: 0px;
+  height: 350px;
+  mix-blend-mode: undefined;
+  background-color: #f6f6f6;
+    text-align:center;
+    vertical-align:middle;
+}
+.background2 h1{
+    margin-bottom:50px;
+    font-size: 33px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #2d2d2d;
+}
+.box{
+  margin: 0px auto;
+  width: 300px;
+  height: 82px;
+  mix-blend-mode: undefined;
+  background-color: #dd4545;
+  display:block;
+ }
+ a{
+   text-decoration : none
+ }
+ .box p{
+  padding-top:30px;
+
+  font-size: 22px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+ }
+.footer{
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding-top: 46px;
+    text-align:center;
+}
+.footer .center{
+  display:inline-block;
+  margin: 0px auto;
+padding-bottom: 48px;
+}
+.footer div{
+display :inline-block;
+padding-left: 25px;
+padding-right: 25px;
+}
+.footer .logo{
+    padding-top:28px;
+    text-align: center;
+}
+.footer .logo img{
+    margin-bottom: 25px;
+}
+.left {
+    text-align:left;
+}
