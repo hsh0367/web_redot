@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup_redot.css'%}?ver=4">
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block main %}
+<div class="header">
+    <div>회원가입</div>
+</div>
+<div class="content">
+  <form method="post">
+    {% csrf_token %}
+    <div class="username">
+       <P>아이디</P> {{ form.username }}
+    </div>
+    <div class="password1">
+      <p>비밀번호</p>  {{ form.password1 }}
+    </div>
+    <div class="password1">
+       <p>비밀번호 재확인</p> {{ form.password2 }}
+    </div>
+
+        {% for error in form.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      <button type="submit" class="button">로그인</button>
+  </form>
+  <a href="{% url 'main' %}"><button type="submit" class="button">홈으로</button></a>
+
+</div>
+
+{% endblock %}

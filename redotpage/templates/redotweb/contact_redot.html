@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact_redot.css'%}?ver=4">
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block main %}
+<div class="header">
+    <div>문의</div>
+</div>
+<div class="content">
+    <div class="content00">
+        <h1>이메일 문의</h1>
+        <form action="">
+      <div class="container">
+          <select name="customer">
+              <option value="defalt">선택</option>
+              <option value="defalt">기업</option>
+              <option value="defalt">일반인</option>
+          </select>
+          <select name="question">
+              <option value="defalt">분류</option>
+              <option value="business">가맹 및 제휴</option>
+              <option value="service">서비스 문의</option>
+              <option value="Hire">채용</option>
+              <option value="etc">기타</option>
+          </select>
+          <input type="text" placeholder="성명 (업체명)" name="name" required>
+          <div class="message">
+            <textarea name="message" rows="20" cols="130"></textarea>
+          </div>
+          <div class="content-button">
+              <button type="submit" class="button">보내기</button>
+          </div>
+      </div>
+    </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>스마트폰 데이터 복구 솔루션 - Re.</title>
+    {% block css %}{% endblock %}
+
+</head>
+<body>
+<div class="topnav">
+  <a href="{% url 'main' %}" class="top-logo"><img src="{%static 'asset/logo-header.png' %}"></a>
+  <a class="list" href="{% url 'main' %}">리닷에 대하여</a>
+  <a class="list" href="{% url 'download' %}">다운로드</a>
+  <a class="list" href="{% url 'board' %}">자유게시판</a>
+  <a class="list" href="{% url 'contact' %}">문의</a>
+  <a class="list" href="{% url 'signin' %}" id="topnav">로그인</a>
+</div>
+{% block main %}{% endblock %}
+
+<div class="footer">
+    <div class="center">
+            <div class="logo">
+        <img src="{%static 'asset/logo-footer.png' %}" >
+        <p>ALL RIGHTS RESERVED BY RE.</p>
+    </div>
+    <div class="left">
+            <p>상호명 : The Spot.</p>
+            <p>E-Mail : nsh1189@gmail.com</p>
+            <p>주소 : 강원도 춘천시 강원대학길 1 공학 6호관 212호, The Spot.</p>
+    </div>
+
+    </div>
+</div>
+</body>

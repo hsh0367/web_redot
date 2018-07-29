@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/board_new_redot.css'%}?ver=4">
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block main %}
+<div class="header">
+    <div>글쓰기</div>
+</div>
+
+<div class="container">
+    <div id="content">
+	<form action="" method="post">
+		{% csrf_token %}
+
+        <div class="title">
+        {{ form.board_title }}
+        </div>
+         <div class="message">
+            {{ form.message }}
+         </div>
+        <div class="content-button">
+		<button class="button">제출</button>
+        </div>
+	</form>
+</div>
+</div>
+{% endblock %}
