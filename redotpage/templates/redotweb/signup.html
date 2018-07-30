@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/signup_redot.css'%}?ver=4">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup_redot.css'%}?ver=5">
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -31,7 +31,7 @@
         {% for error in form.errors %}
           <p style="color: red">{{ error }}</p>
         {% endfor %}
-      <button type="submit" class="button">로그인</button>
+      <button type="submit" class="button">회원가입</button>
   </form>
   <a href="{% url 'main' %}"><button type="submit" class="button">홈으로</button></a>
 
