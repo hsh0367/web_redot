@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/contact_redot.css'%}?ver=4">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contact_redot.css'%}?ver=5">
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -16,10 +16,9 @@
     <div>문의</div>
 </div>
 <div class="content">
-    <div class="content00">
+    <div class="container">
         <h1>이메일 문의</h1>
         <form action="">
-      <div class="container">
           <select name="customer">
               <option value="defalt">선택</option>
               <option value="defalt">기업</option>
@@ -39,7 +38,6 @@
           <div class="content-button">
               <button type="submit" class="button">보내기</button>
           </div>
-      </div>
     </form>
     </div>
 </div>
