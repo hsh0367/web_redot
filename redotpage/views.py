@@ -1,11 +1,13 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.core.mail import EmailMessage
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.template.loader import get_template
 
-from .forms import LoginForm, BoardForm, contact_form, SignUpForm
+from .forms import *
 from .models import *
 
 def main(request):
@@ -59,7 +61,47 @@ def board_new(request):
 
 
 def contact(request):
-    return render(request,"redotweb/contact_redot.html")
+    form = contact_form
+    return render(request,'redotweb/contact_redot.html',{'form':form})
+
+
+
+def email_contact(request):
+    form_class = TestContactForm
+
+    # new logic!
+    if request.method == 'POST':
+        form = form_class(data=request.POST)
+
+        if form.is_valid():
+            contact_name = request.POST.get(
+                'contact_name'
+                , '')
+            contact_email = request.POST.get(
+                'contact_email'
+                , '')
+            form_content = request.POST.get('content', '')
+
+            # Email the profile with the
+            # contact information
+            template = get_template('contact_template.txt')
+        context = {
+            'contact_name': contact_name,
+            'contact_email': contact_email,
+            'form_content': form_content,
+        }
+        content = template.render(context)
+
+        email = EmailMessage(
+            "New contact form submission",
+            content,
+            "Your website" + '',
+            ['youremail@gmail.com'],
+            headers={'Reply-To': contact_email}
+        )
+        email.send()
+        return redirect('contact')
+    return render(request, 'test.html', {'form': form_class,})
 
 
 def download(request):
@@ -68,6 +110,7 @@ def download(request):
 
 def pr(request):
     return render(request,"redotweb/pr_redot.html")
+
 
 def signIn(request):
     if request.method == "POST":
@@ -88,7 +131,12 @@ def signIn(request):
         return render(request, 'redotweb/login_redot.html', {'form': login_form})
 
 
-def signup(request):
+
+
+
+'''
+#이메일인증 리캡챠 구현전까지 회원가입 차단
+def signUp(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -101,25 +149,4 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'redotweb/signup.html', {'form': form})
-
-
-
-def email_contact(request):
-    if request.method == 'GET':
-        form = contact_form()
-    else:
-        form = contact_form(request.POST)
-        if form.is_valid():
-            contact_name = form.cleaned_data['contact_name']
-            contact_email = form.cleaned_data['contact_email']
-            contact_message = form.cleaned_data['contact_message']
-            try:
-                send_mail(contact_name, contact_message, contact_email, ['californiamikegreen@yahoo.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect('success')
-    return render(request, "contact.html", {'form': form})
-
-
-def success(request):
-    return HttpResponse('Success! Thank you for your message.')
+'''
