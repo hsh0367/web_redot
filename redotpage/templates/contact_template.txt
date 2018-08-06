@@ -1,0 +1,11 @@
+Customer:
+{{ customer }}
+
+Question:
+{{ question }}
+
+Contact Name:
+{{ contact_name }}
+
+Content:
+{{ form_content|safe|striptags }}

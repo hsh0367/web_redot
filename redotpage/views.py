@@ -61,33 +61,64 @@ def board_new(request):
 
 
 def contact(request):
-    form = contact_form
-    return render(request,'redotweb/contact_redot.html',{'form':form})
-
-
-
-def email_contact(request):
-    form_class = TestContactForm
+    form_class = contact_form
 
     # new logic!
     if request.method == 'POST':
         form = form_class(data=request.POST)
-
         if form.is_valid():
-            contact_name = request.POST.get(
-                'contact_name'
-                , '')
-            contact_email = request.POST.get(
-                'contact_email'
-                , '')
-            form_content = request.POST.get('content', '')
+            # customer = request.POST.get('customer_select', '')
+            # question = request.POST.get('question_select', '')
+
+            customer = form.cleaned_data['customer_select']
+            question = form.cleaned_data['question_select']
+            contact_name = request.POST.get('contact_name', '')
+            form_content = request.POST.get('contact_message', '')
 
             # Email the profile with the
             # contact information
             template = get_template('contact_template.txt')
         context = {
+            'customer': customer,
+            'question': question,
             'contact_name': contact_name,
-            'contact_email': contact_email,
+            'form_content': form_content,
+        }
+        content = template.render(context)
+
+        email = EmailMessage(
+            "New contact form submission",
+            content,
+            "Your website" + 'redot.kr',
+            ['redot.help@gmail.com'],
+        )
+        email.send()
+        return redirect('contact')
+    return render(request, 'redotweb/contact_redot.html', {'form': form_class, })
+
+
+def email_contact(request):
+    form_class = contact_form
+
+    # new logic!
+    if request.method == 'POST':
+        form = form_class(data=request.POST)
+        if form.is_valid():
+            #customer = request.POST.get('customer_select', '')
+            #question = request.POST.get('question_select', '')
+
+            customer = form.cleaned_data['customer_select']
+            question = form.cleaned_data['question_select']
+            contact_name = request.POST.get('contact_name', '')
+            form_content = request.POST.get('contact_message', '')
+
+            # Email the profile with the
+            # contact information
+            template = get_template('contact_template.txt')
+        context = {
+            'customer': customer,
+            'question': question,
+            'contact_name': contact_name,
             'form_content': form_content,
         }
         content = template.render(context)
@@ -96,11 +127,10 @@ def email_contact(request):
             "New contact form submission",
             content,
             "Your website" + '',
-            ['youremail@gmail.com'],
-            headers={'Reply-To': contact_email}
+            ['redot.help@gmail.com'],
         )
         email.send()
-        return redirect('contact')
+        return redirect('email')
     return render(request, 'test.html', {'form': form_class,})
 
 
@@ -134,9 +164,9 @@ def signIn(request):
 
 
 
-'''
+
 #이메일인증 리캡챠 구현전까지 회원가입 차단
-def signUp(request):
+def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -149,4 +179,4 @@ def signUp(request):
     else:
         form = SignUpForm()
     return render(request, 'redotweb/signup.html', {'form': form})
-'''
+
