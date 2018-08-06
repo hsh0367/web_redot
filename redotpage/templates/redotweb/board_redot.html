@@ -45,7 +45,6 @@
         <hr>
 
         <a class="btn btn-primary btn-xs pull-right"  href="{% url 'board_new' %}" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></a>
-{% if boards.has_other_pages %}
   <ul class="pagination">
     {% if boards.has_previous %}
       <li><a href="?page={{ boards.previous_page_number }}">&laquo;</a></li>
@@ -65,19 +64,6 @@
       <li class="disabled"><span>&raquo;</span></li>
     {% endif %}
   </ul>
-{% endif %}
-
-        <!-- pagination 구현
-        <div class="text-center">
-            <ul class="pagination">
-                <li><a href="#">1</a> </li>
-                <li><a href="#">2</a> </li>
-                <li><a href="#">3</a> </li>
-                <li><a href="#">4</a> </li>
-                <li><a href="#">5</a> </li>
-            </ul>
-        </div>
-        -->
     </div>
 </div>
 
