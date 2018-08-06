@@ -96,44 +96,6 @@ def contact(request):
         return redirect('contact')
     return render(request, 'redotweb/contact_redot.html', {'form': form_class, })
 
-
-def email_contact(request):
-    form_class = contact_form
-
-    # new logic!
-    if request.method == 'POST':
-        form = form_class(data=request.POST)
-        if form.is_valid():
-            #customer = request.POST.get('customer_select', '')
-            #question = request.POST.get('question_select', '')
-
-            customer = form.cleaned_data['customer_select']
-            question = form.cleaned_data['question_select']
-            contact_name = request.POST.get('contact_name', '')
-            form_content = request.POST.get('contact_message', '')
-
-            # Email the profile with the
-            # contact information
-            template = get_template('contact_template.txt')
-        context = {
-            'customer': customer,
-            'question': question,
-            'contact_name': contact_name,
-            'form_content': form_content,
-        }
-        content = template.render(context)
-
-        email = EmailMessage(
-            "New contact form submission",
-            content,
-            "Your website" + '',
-            ['redot.help@gmail.com'],
-        )
-        email.send()
-        return redirect('email')
-    return render(request, 'test.html', {'form': form_class,})
-
-
 def download(request):
     return render(request,"redotweb/download_redot.html")
 
