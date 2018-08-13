@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.conf.urls import url
-from . import views
+from .import views
+
 from django.contrib.auth.views import logout
 
 
@@ -17,4 +18,8 @@ urlpatterns = [
     # 이메일인증 및 리갭챠 구현전까지 회원가입 막음
     url(r'^signup/$', views.signup, name='signup'),
 
+    # 이메일 인증 회원가입 테스트
+    url( r'^register/$', views.test_signup, name='register'),
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        views.activate, name='activate'),
 ]
