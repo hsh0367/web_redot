@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+
+
 from .models import *
 
 class LoginForm(forms.ModelForm):
@@ -25,13 +27,13 @@ class UserForm(forms.ModelForm):
 
 class SignUpForm(UserCreationForm):
    # email = forms.EmailField(max_length=255, help_text='Required. Inform a valid email address.')
-   username = forms.CharField(label='username', widget=forms.TextInput(attrs={'placeholder': '아이디'}))
    email = forms.EmailField(max_length=255,label='email', widget=forms.TextInput(attrs={'placeholder': '이메일'}))
-   password1 = forms.CharField(label='password1', widget=forms.PasswordInput(attrs={'placeholder': '비밀번호'}))
-   password2 = forms.CharField(label='password2', widget=forms.PasswordInput(attrs={'placeholder': '비밀번호'}))
+   user_id = forms.CharField(label='username', widget=forms.TextInput(attrs={'placeholder': '아이디'}))
+   user_password1 = forms.CharField(label='password1', widget=forms.PasswordInput(attrs={'placeholder': '비밀번호'}))
+   user_password2 = forms.CharField(label='password2', widget=forms.PasswordInput(attrs={'placeholder': '비밀번호'}))
    class Meta:
         model = User
-        fields = ('username', 'email','password1', 'password2', )
+        fields = ('email','user_id','password1', 'password2', )
 
 #
 # class BoardForm(forms.Form):
@@ -69,7 +71,8 @@ class contact_form(forms.Form):
     customer_select = forms.ChoiceField(choices=CHOICES1)
     question_select = forms.ChoiceField(choices=CHOICES2)
     contact_name = forms.CharField(label='Contact Name', max_length=255,widget=forms.TextInput(attrs={'placeholder': ' 성명 (업체명)'}))
-  #  contact_email = forms.CharField(label='Contact Email',max_length=255)
+    contact_email = forms.CharField(label='Contact Email', max_length=255,widget=forms.EmailInput(attrs={'placeholder': ' 이메일'}))
+
     contact_message = forms.CharField(
         required=True,
         widget=forms.Textarea
@@ -90,3 +93,11 @@ class TestContactForm(forms.Form):
         self.fields['contact_name'].label = "Your name:"
         self.fields['contact_email'].label = "Your email:"
         self.fields['content'].label = "What do you want to say?"
+
+
+
+class Test_SignupForm(UserCreationForm):
+    email = forms.EmailField(max_length=200, help_text='Required',)
+    class Meta:
+        model = TestUser
+        fields = ('email','username', 'password1', 'password2')
