@@ -140,25 +140,25 @@ def signup(request):
             # email, username, password check vaild value#
             email = form.cleaned_data['email']
             username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
 
-          #  if Checker.validate_username(self='',value=username) == True and Checker.validate_email(self='',value=email) == True:
-            if True:
-                user.save()
-                current_site = get_current_site(request)
-                mail_subject = '리닷사이트 계정등록 이메일 인증 링크'
-                message = render_to_string('account_activate_email.html', {
-                        'user': user,
-                        'domain': current_site.domain,
-                        'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
-                        'token': account_activation_token.make_token(user),
-                })
-                to_email = form.cleaned_data.get('email')
-                email = EmailMessage(
-                            mail_subject, message, to=[to_email]
-                )
-                email.content_subtype = 'html'
-                email.send()
-                return HttpResponse('이메일주소에서 리닷사이트 회원가입을 위한 링크를 확인해주세요',)
+            if Checker.validate_username(self='',value=username) == True and Checker.validate_email(self='',value=email) == True and Checker.validate_passord(self='',value=password):
+                    user.save()
+                    current_site = get_current_site(request)
+                    mail_subject = '리닷사이트 계정등록 이메일 인증 링크'
+                    message = render_to_string('account_activate_email.html', {
+                            'user': user,
+                            'domain': current_site.domain,
+                            'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
+                            'token': account_activation_token.make_token(user),
+                    })
+                    to_email = form.cleaned_data.get('email')
+                    email = EmailMessage(
+                                mail_subject, message, to=[to_email]
+                    )
+                    email.content_subtype = 'html'
+                    email.send()
+                    return HttpResponse('이메일주소에서 리닷사이트 회원가입을 위한 링크를 확인해주세요',)
             else:
                 form = SignupForm()
     else:
