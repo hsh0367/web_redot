@@ -1,24 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <div class="container">
-        <div class="spacer_30">&nbsp;</div>
-        <div class="spacer_90 hidden-sm hidden-xs">&nbsp;</div>
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <p>{% trans "Your account has been activated.  You may go ahead and log in now." %}</p>
+<html>
+    <head>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-                        <p><a class="btn btn-success" href="{% url 'account:login' %}">{% trans 'Log in' %}</a></p>
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="spacer_30">&nbsp;</div>
+            <div class="spacer_90 hidden-sm hidden-xs">&nbsp;</div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p>리닷 사이트 회원가입 계정이 활성화 되었습니다.</p>
+                            <p>리닷 사이트에서 로그인을 하세요</p>
+                            <a href="{% url 'main' %}">리닷으로가기</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

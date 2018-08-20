@@ -1,5 +1,6 @@
-{% autoescape on %}
+{% autoescape off %}
 {{user.username}}님, 아래 링크를 클릭해서 계정을 활성화 해주세요
-<a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}"> </a>
-
+<br>
+<a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">여기를 클릭해서 계정을 활성화 해주세요</a>
 {% endautoescape %}
+
