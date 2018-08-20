@@ -9,7 +9,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.loader import get_template, render_to_string
 from django.utils.encoding import force_text, force_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
-
 from .forms import *
 from .models import Board,TestUser
 from .token import account_activation_token
@@ -128,109 +127,49 @@ def signIn(request):
         return render(request, 'redotweb/login_redot.html', {'form': login_form})
 
 
-
-#이메일인증 리캡챠 구현전까지 회원가입 차단
+'''이메일 인증 회원가입'''
 
 
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('main')
-    else:
-        form = SignUpForm()
-    return render(request, 'redotweb/signup.html', {'form': form})
-
-
-
-# 이메일 인증 회원가입 테스트
-
-
-def test_signup(request):
-    if request.method == 'POST':
-        form = Test_SignupForm(request.POST)
+        form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
-            # email, username, password check vaild value
-            user.save()
-            current_site = get_current_site(request)
-            mail_subject = 'Activate your blog account.'
-            message = render_to_string('account_activate_email.html', {
-                    'user': user,
-                    'domain': current_site.domain,
-                    'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
-                    'token': account_activation_token.make_token(user),
-            })
-            to_email = form.cleaned_data.get('email')
-            email = EmailMessage(
-                        mail_subject, message, to=[to_email]
-            )
 
-            email.send()
-            return HttpResponse('Please confirm your email address to complete the registration',)
-    else:
-        form = Test_SignupForm()
-    return render(request, 'redotweb/testsignup.html', {'form': form})
+            # email, username, password check vaild value#
+            email = form.cleaned_data['email']
+            username = form.cleaned_data['username']
 
-    """
-        class UserActivate(APIView):
-    permission_classes = (permissions.AllowAny, )
-
-    def get(self,requset, uidb64, token):
-        try:
-            uid = force_text(urlsafe_base64_decode(uidb64.encode('utf-8')))
-            user = User.objects.get(pk=uid)
-        except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-            user = None
-
-        try:
-            if user is not None and account_activation_token.check_token(user,token):
-                user.active = True
+          #  if Checker.validate_username(self='',value=username) == True and Checker.validate_email(self='',value=email) == True:
+            if True:
                 user.save()
-                return Response(user.user_id + ' 계정이 활성화 되었습니다.', status=status.HTTP_200_OK)
+                current_site = get_current_site(request)
+                mail_subject = '리닷사이트 계정등록 이메일 인증 링크'
+                message = render_to_string('account_activate_email.html', {
+                        'user': user,
+                        'domain': current_site.domain,
+                        'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
+                        'token': account_activation_token.make_token(user),
+                })
+                to_email = form.cleaned_data.get('email')
+                email = EmailMessage(
+                            mail_subject, message, to=[to_email]
+                )
+                email.content_subtype = 'html'
+                email.send()
+                return HttpResponse('이메일주소에서 리닷사이트 회원가입을 위한 링크를 확인해주세요',)
             else:
-                return Response('만료된 링크입니다.', status=status.HTTP_400_BAD_REQUEST)
-        except Exception as e:
-            print(traceback.format_exc())
-
-
-class UserActivateView(TemplateView):
-    logger = logging.getLogger(__name__)
-    template_name = 'template/account_activate_complate.html'
-
-    def get(self, request, *args, **kwargs):
-        self.logger.debug('UserActivateView.get()')
-
-        uid = force_text(urlsafe_base64_decode(self.kwargs['uidb64']))
-        token = self.kwargs['token']
-
-        self.logger.debug('uid: %s, token: %s' % (uid, token))
-
-        try:
-            user = User.objects.get(pk=uid)
-        except(TypeError, ValueError, OverflowError, User.DoesNotExist):
-            self.logger.warning('User %s not found' % uid)
-            user = None
-
-        if user is not None and PasswordResetTokenGenerator().check_token(user, token):
-            user.is_active = True
-            user.save()
-            self.logger.info('User %s(pk=%s) has been activated.' % (user, user.pk))
-
-        return super(UserActivateView, self).get(request, *args, **kwargs)
-        """
+                form = SignupForm()
+    else:
+        form = SignupForm()
+    return render(request, 'redotweb/testsignup.html', {'form': form})
 
 
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
-        user = User.objects.get(pk=uid)
+        user = TestUser.objects.get(pk=uid)
     except(TypeError, ValueError, OverflowError, TestUser.DoesNotExist):
         user = None
     if user is not None and account_activation_token.check_token(user, token):
@@ -238,6 +177,7 @@ def activate(request, uidb64, token):
         user.save()
         login(request, user)
         # return redirect('home')
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return render(request,'account_activate_complate.html')
     else:
-        return HttpResponse('Activation link is invalid!')
+        return HttpResponse('올바르지 않은 링크입니다.')
+
