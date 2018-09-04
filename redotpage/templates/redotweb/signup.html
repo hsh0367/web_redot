@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/signup_redot.css'%}?ver=5">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup_redot.css'%}?ver=0">
     <!-- 합쳐지고 최소화된 최신 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -18,16 +18,21 @@
 <div class="content">
   <form method="post">
     {% csrf_token %}
+      {% if error %}
+        {{ messages.tags }}
+      {% endif %}
     <div class="username">
+       <P>이메일</P> {{ form.email }}
+    </div>
+       <div class="username">
        <P>아이디</P> {{ form.username }}
     </div>
     <div class="password1">
       <p>비밀번호</p>  {{ form.password1 }}
     </div>
     <div class="password1">
-       <p>비밀번호 재확인</p> {{ form.password2 }}
+      <p>재확인 비밀번호</p>  {{ form.password2 }}
     </div>
-
         {% for error in form.errors %}
           <p style="color: red">{{ error }}</p>
         {% endfor %}
