@@ -1,3 +1,9 @@
+import mimetypes
+
+import os
+import urllib
+
+from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
@@ -127,7 +133,13 @@ def signIn(request):
         return render(request, 'redotweb/login_redot.html', {'form': login_form})
 
 
-'''이메일 인증 회원가입'''
+def testdownload(request):
+
+    respond_as_attachment(request, '/Users/heosanghun/Desktop/redot/redotweb/redotpage/static/asset/app.png', 'app.png')
+
+    return redirect('download')
+
+    '''이메일 인증 회원가입'''
 
 
 def signup(request):
@@ -160,10 +172,12 @@ def signup(request):
                     email.send()
                     return HttpResponse('이메일주소에서 리닷사이트 회원가입을 위한 링크를 확인해주세요',)
             else:
-                form = SignupForm()
+                messages.error(request, '에러에러')
+                return redirect('register')
+                #form = SignupForm()
     else:
         form = SignupForm()
-    return render(request, 'redotweb/testsignup.html', {'form': form})
+    return render(request, 'redotweb/signup.html', {'form': form})
 
 
 def activate(request, uidb64, token):
@@ -181,3 +195,30 @@ def activate(request, uidb64, token):
     else:
         return HttpResponse('올바르지 않은 링크입니다.')
 
+
+#file download test
+def respond_as_attachment(request, file_path, original_filename):
+    fp = open(file_path, 'rb')
+    response = HttpResponse(fp.read())
+    fp.close()
+    type, encoding = mimetypes.guess_type(original_filename)
+    if type is None:
+        type = 'application/octet-stream'
+    response['Content-Type'] = type
+    response['Content-Length'] = str(os.stat(file_path).st_size)
+    if encoding is not None:
+        response['Content-Encoding'] = encoding
+
+    # To inspect details for the below code, see http://greenbytes.de/tech/tc2231/
+    if u'WebKit' in request.META['HTTP_USER_AGENT']:
+        # Safari 3.0 and Chrome 2.0 accepts UTF-8 encoded string directly.
+        filename_header = 'filename=%s' % original_filename.encode('utf-8')
+    elif u'MSIE' in request.META['HTTP_USER_AGENT']:
+        # IE does not support internationalized filename at all.
+        # It can only recognize internationalized URL, so we do the trick via routing rules.
+        filename_header = ''
+    else:
+        # For others like Firefox, we follow RFC2231 (encoding extension in HTTP headers).
+        filename_header = 'filename*=UTF-8\'\'%s' % urllib.quote(original_filename.encode('utf-8'))
+    response['Content-Disposition'] = 'attachment; ' + filename_header
+    return response
