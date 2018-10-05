@@ -1,156 +1,218 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main_redot.css'%}?ver=4">
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <link href="{% static './css/main.css' %}" rel="stylesheet">
 {% endblock %}
 {% block main %}
-    <div class="img">
-        <div class="content">
+  <div class="landing-page__jumbotron" style="background-image: url('/static/asset/image-top.png')">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="landing-page__jumbotron-heading">
+            <h1>
+              모바일 포렌식 솔루션의 새로운 기준,<br>
+              <span class="text-brand">리닷</span>이 만들어갑니다.
+            </h1>
+          </div>
 
-            <h1>모바일 포렌식 솔루션의 새로운 기준,</h1>
-            <h2><span class="red">리닷</span>이 만들어갑니다. </h2>
-
+          <div class="landing-page__jumbotron-description">
             <p>어플리케이션부터 방문 서비스까지.</p>
             <p>리닷의 손에서 모든 서비스가 새롭게 구성됩니다.</p>
-            <p>데이터에 무슨일이 생겨도 이젠, 리닷이 있습니다. </p>
+            <p>데이터에 무슨 일이 생겨도 이젠, 리닷이 있습니다.</p>
+          </div>
         </div>
-        <div class="img-cover"></div>
-    </div>
-<div class="background">
-      <div class="content02">
-          <h1>왜 <span class="red">리닷</span>인가요?</h1>
-          <p>리닷은 기존을 탈피하여 새로운 고객가치에 부합하기 위해</p>
-          <p>리닷만의 영역을 구축했습니다.</p>
-              <div class="gallery">
-                  <img src="{%static 'asset/app.png' %}">
-                  <div class="desc">어플리케이션 지원</div>
-                  <div class="text">기존업체에서 제공하지 못했던</div>
-                  <div class="text"><span class="red">모바일 앱 지원</span>을 통한</div>
-                  <div class="text">한단계 앞선 모바일 포렌식 서비스</div>
-              </div>
-              <div class="gallery">
-                  <img src="{%static 'asset/checked.png' %}">
-                  <div class="desc">최신기종 대응</div>
-                  <div class="text">갤럭시 S8이후 출시된</div>
-                  <div class="text">최신 스마트폰 대응으로</div>
-                  <div class="text"><span class="red">업계 유일 최신기종 대응</span> 업체</div>
-              </div>
-              <div class="gallery">
-                  <img src="{%static 'asset/lately.png' %}">
-                  <div class="desc">Re. station</div>
-                  <div class="text">리닷이 직접 검증하고 선별한</div>
-                  <div class="text"><span class="red">전문 가맹점 ‘리닷 스테이션’</span></div>
-              </div>
-              <div class="gallery">
-                  <img src="{% static 'asset/money.png' %}">
-                  <div class="desc">저렴한 가격</div>
-                  <div class="text">타사 대비 저렴한 가격으로</div>
-                  <div class="text">소비자들의 <span class="red">부담을 덜어낸</span></div>
-                  <div class="text"><span class="red">합리적인 서비스</span> 제공</div>
-              </div>
 
+        <div class="col-md-5 hidden-xs hidden-sm">
+          <div class="landing-page__jumbotron-shield-image-wrapper">
+            <img src="{% static './asset/shield.png' %}" alt="Shield image">
+          </div>
+        </div>
       </div>
-</div>
-<div class="content03">
-            <div class="content03_title">
-            <h1>리닷은 무엇을 <span class="red">서비스</span>하나요?</h1>
-            <P>리닷은 더 다양한 서비스를 편리성 높게 제공하기 위하여</P>
-            <p>서비스를 세분화하고 개선하였습니다. </P>
-            </div>
+    </div>
+  </div>
 
-        <div class="content03-01">
-            <img src="{% static 'asset/phone.png' %}" class="phone">
-            <div class="content03-02">
-                <div class="title">
-                    <img src="{% static 'asset/logo-black.png' %}">
-                    <h1>어플리케이션</h1>
-                </div>
-                <div class="content">
-                    <p>리닷 어플리케이션은 기존업체에서 제공하지 못한 모바일 포렌식 솔루션을 제공합니다.</p>
-                    <p>또한 리닷 스테이션 조회 및 예약을 제공하여 소비자의 오프라인 지원 서비스에 차질이 없도록</p>
-                    <p>설계했습니다. 사진 복구부터 연락처, 카톡 등 다양한 데이터를 스마트폰 내에서 빠르게</p>
-                    <p>처리 할 수 있습니다. 리닷 어플리케이션이 제공하는 새로운 편의는 스마트폰의 구분 없이</p>
-                    <p>누구나 어느때에도 이용 할 수 있습니다. 저렴한 가격까지 더해졌으니 나무랄곳이 없군요!</p>
-                </div>
-            </div>
+  <div class="landing-page__why-redot">
+    <div class="container">
+      <h2 class="text-center">
+        왜 <span class="text-brand">리닷</span>인가요?
+      </h2>
+      <p class="landing-page__why-redot-desc text-center">
+        리닷은 기존을 탈피하여 새로운 고객 가치에 부합하기 위해<br>
+        리닷만의 영역을 구축했습니다.
+      </p>
+
+      <div class="landing-page__why-redot-features row">
+        <div class="landing-page__why-redot-feature-elem col-md-3">
+          <div>
+            <img src="{% static './asset/app.png' %}" alt="">
+          </div>
+
+          <h3>어플리케이션 지원</h3>
+          <p>
+            기존 업체에서 제공하지 못했던
+            <span class="text-brand">모바일 앱 지원</span>
+            을 통한 한 단계 앞선 모바일 포렌식 서비스
+          </p>
         </div>
-        <br>
 
-        <div class="mac-content03-01">
-            <img src="{% static 'asset/mac.png' %}" class="mac">
-            <div class="mac-content03-02">
-                <div class="title">
-                    <img src="{% static 'asset/logo-black.png' %}">
-                    <h1>lite</h1>
-                </div>
-                <div class="content">
-                    <p>리닷 라이트는 가볍고 강력한 PC기반 모바일 포렌식 솔루션 도구입니다.</p>
-                    <p>모바일 환경에서의 제한된 성능을 벗어나 PC를 통해 모바일 포렌식을</p>
-                    <p>진행할 수 있으며, 더 많은 서비스를 제공합니다. 스마트폰을 꽂는것 만으로</p>
-                    <p>모든것이 가능해집니다. 어떻게 이렇게나 간단하면서 효율적일수 있을까요. </p>
-                </div>
-         </div>
+        <div class="landing-page__why-redot-feature-elem col-md-3">
+          <div>
+            <img src="{% static './asset/rocket.png' %}" alt="">
+          </div>
+
+          <h3>최신 기종 대응</h3>
+          <p>
+            Galaxy S8 이후 출시된 최신 스마트폰 대응으로
+            <span class="text-brand">업계 유일 최신 기종 대응</span>
+            업체
+          </p>
         </div>
-            <br>
 
-    <div class="station-content03-01">
-        <img src="{% static 'asset/station.png' %}" class="station">
-         <div class="station-content03-02">
-                <div class="title">
-                    <img src="{% static 'asset/logo-black.png' %}">
-                    <h1>station</h1>
-                </div>
-                <div class="content">
-                    <p>리닷 스테이션은 리닷이 제공하는 전문적인 모바일 포렌식 솔루션 가맹점입니다.</p>
-                    <p>스마트폰의 물리적 손상, 대용량 복구 등 집에서 불가능한 일을 리닷이 엄선하여</p>
-                    <p>제휴한 가맹점에서 손쉽게 진행할 수 있도록 도와드립니다. 리닷 어플리케이션에서</p>
-                    <p>편하게 조회하고 예약하세요. 이보다 더 쉬울순 없을겁니다.</p>
-                </div>
-         </div>
-    </div>
-</div>
-<div class="content04">
-   <div class="img2">
-        <div class="content">
-            <h1>리닷은 끊임없이 연구합니다.</h1>
-            <p>기존 업체와의 차별을 중심으로 활동하는 리닷은 발전을 멈출수 없습니다.</p>
-            <p>단지 특정인에게 돌아가는 서비스가 아닌,</p>
-            <p>사회 구성원 모두가 장벽없이 이용할 수 있는 서비스로 거듭나기 위해</p>
-            <p>리닷은 쉼없이 달릴것입니다.</p>
+        <div class="landing-page__why-redot-feature-elem col-md-3">
+          <div>
+            <img src="{% static './asset/re-station.png' %}" alt="">
+          </div>
+
+          <h3>Re. station</h3>
+          <p>
+            리닷이 직접 검증하고 선별한
+            <span class="text-brand">전문 가맹점 '리닷 스테이션'</span>
+          </p>
         </div>
-        <div class="img-cover"></div>
-    </div>
-</div>
 
-<div class="content05">
-    <div class="text05">
-        <h1>
-            리닷은 누구에게나 열려있습니다.
-        </h1>
-        <P>리닷은 기업과 고객가치에 부합하는 인재를 찾고있습니다.</P>
-        <p>다양한 분야의 다양한 사람들과 함께하는 팀 속에서</p>
-        <p>새로운 미래의 발자국을 남기기 위한 여정을</p>
-        <p>함께하실 분들은 연락을 부탁드립니다.</P>
-    </div>
+        <div class="landing-page__why-redot-feature-elem col-md-3">
+          <div>
+            <img src="{% static './asset/money.png' %}" alt="">
+          </div>
 
-</div>
-<div class="content06">
-    <div class="background2">
-
-        <H1>기업 제휴 문의 및 안내</H1>
-        <a href="{% url 'business' %}">
-            <div class="box">
-                <p>기업 페이지로 이동</p>
-            </div>
-        </a>
+          <h3>저렴한 가격</h3>
+          <p>
+            타사 대비 저렴한 가격으로 소비자들의 부담을 덜어낸
+            <span class="text-brand">합리적인 서비스</span>
+            제공
+          </p>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+
+  <div class="landing-page__solutions">
+    <div class="container">
+      <h2 class="text-center">
+        리닷은 무엇을 <span class="text-brand">서비스</span>하나요?
+      </h2>
+
+      <p class="landing-page__solutions-description text-center">
+        리닷은 다양한 서비스를 편리하게 제공하기 위하여<br>
+        서비스를 세분화하고 개선했습니다.
+      </p>
+
+
+
+      <div class="row landing-page__solutions-row">
+        <div class="col-md-offset-1 col-md-3 landing-page__solutions-elem-img-wrapper text-center">
+          <img src="{% static './asset/phone.png' %}" alt="">
+        </div>
+
+        <div class="col-md-7 landing-page__solutions-elem-desc-wrapper">
+          <h3 class="landing-page__solutions-elem-title">
+            <img src="{% static './asset/logo-black.png' %}" alt="">
+            어플리케이션
+          </h3>
+          <p class="landing-page__solutions-elem-description">
+            리닷 어플리케이션은 기존 업체에서 제공하지 못한 모바일 포렌식 솔루션을 제공합니다.
+            또한 리닷 스테이션 조회 및 예약 제공으로 소비자의 오프라인 지원 서비스에 차질이
+            없도록 설계했습니다. 사진 복구부터 연락처, 카카오톡 등 다양한 데이터를 스마트폰
+            내에서 빠르게 처리할 수 있습니다. 리닷 어플리케이션이 제공하는 새로운 편의는
+            스마트폰의 구분없이 누구나 언제든지 이용할 수 있습니다. 저렴한 가격까지
+            더해졌으니 나무랄 곳이 없군요!
+          </p>
+        </div>
+      </div>
+
+      <div class="row landing-page__solutions-row">
+        <div class="hidden-md hidden-lg col-md-3 landing-page__solutions-elem-img-wrapper text-center">
+          <img src="{% static './asset/mac.png' %}" alt="">
+        </div>
+
+        <div class="col-md-offset-2 col-md-6 landing-page__solutions-elem-desc-wrapper">
+          <h3 class="landing-page__solutions-elem-title text-right">
+            <img src="{% static './asset/logo-black.png' %}" alt="">
+            lite
+          </h3>
+          <p class="landing-page__solutions-elem-description text-right">
+            리닷 라이트는 가볍고 강력한 PC 기반 모바일 포렌식 솔루션입니다. 모바일 환경의
+            제한된 성능을 벗어나 PC를 통해 모바일 포렌식을 진행할 수 있으며, 더 많은
+            서비스를 제공합니다. 스마트폰을 꽂는 것만으로 모든 것이 가능합니다. 어떻게
+            이렇게나 간단하면서 효율적일 수 있을까요.
+          </p>
+        </div>
+
+        <div class="hidden-sm hidden-xs col-md-3 landing-page__solutions-elem-img-wrapper text-center">
+          <img src="{% static './asset/mac.png' %}" alt="">
+        </div>
+      </div>
+
+      <div class="row landing-page__solutions-row">
+        <div class="col-md-offset-1 col-md-4 landing-page__solutions-elem-img-wrapper text-center">
+          <img src="{% static './asset/station.png' %}" alt="">
+        </div>
+
+        <div class="col-md-6 landing-page__solutions-elem-desc-wrapper">
+          <h3 class="landing-page__solutions-elem-title">
+            <img src="{% static './asset/logo-black.png' %}" alt="">
+            station
+          </h3>
+          <p class="landing-page__solutions-elem-description">
+            리닷 스테이션은 리닷이 제공하는 전문적인 모바일 포렌식 솔루션 가맹점입니다.
+            스마트폰의 물리적 손상, 대용량 복구 등 집에서 불가능한 작업을 리닷이 엄선하여
+            제휴한 가맹점에서 손쉽게 진행할 수 있도록 도와드립니다. 리닷 어플리케이션에서
+            편하게 조회하고 예약하세요. 이보다 더 쉬울 순 없을 겁니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing-page__research" style="background-image: url('/static/asset/image-research.png')">
+    <div class="container text-center">
+      <h2>
+        <span class="text-brand">리닷</span>은 끊임없이 연구합니다
+      </h2>
+
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <p>
+            기존 업체와 차별을 중심으로 활동하는 리닷은 발전을 멈출 수 없습니다.<br>
+            단지 특정인에게 돌아가는 서비스가 아닌,
+            사회 구성원 모두가 장벽없이 이용할 수 있는 서비스로 거듭나기 위해
+            리닷은 쉴 새 없이 달릴 것입니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing-page__opened-anyone">
+    <div class="container text-center">
+      <h2>
+        <span class="text-brand">리닷</span>은 누구에게나 열려있습니다
+      </h2>
+
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+          <p>
+            리닷은 기업과 고객 가치에 부합하는 인재를 찾고 있습니다.<br>
+            다양한 분야의 다양한 사람들과 함께하는 팀 속에서 새로운 미래의 발자국을
+            남기기 위한 여정을 함께하실 분들은 연락을 부탁드립니다.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing-page__sponship text-center">
+    <h2>기업 제휴 문의 및 안내</h2>
+    <a class="btn landing-page__sponship-link" href="{% url 'business' %}">기업 페이지로 이동</a>
+  </div>
 {% endblock %}

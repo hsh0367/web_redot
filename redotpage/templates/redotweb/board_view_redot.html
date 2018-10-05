@@ -1,39 +1,50 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/board_view_redot.css'%}?ver=4">
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <link href="{% static './css/board_view.css' %}" rel="stylesheet">
 {% endblock %}
 {% block main %}
-<div class="header">
-    <div>자유게시판</div>
-</div>
 
+  <div class="landing-page__board_view-redot" style="background-color : white;" >
+      <div class="landing-page__board_view-redot-title text-center">
+        <h1>자유게시판</h1>
+      </div>
+
+
+    <div class="landing-page__board_view-redot-contnet">
     <div class="container">
-        <div class="board-content">
 
-        <div class="content-title">
+        <div class="row landing-page__row">
+          <div class="col-md-offset-2 col-md-8 landing-page__board_view-wrapper text-center">
 
-               <p class="title">{{board.title }}</p>
-            <p class="name">{{board.user_id}}</p>
+            <div class="landgin-page__board_view-content">
 
-                <p class="date pull-right">{{board.create_date}}</p>
-        </div>
 
-        <hr>
-        <p class="left">{{ board.message|linebreaksbr }}</p>
-                      <div class="button-content">
+                 <div class="board_content-top">
+                    <h4 class="pull-left title">{{ board.title }}</h4>
+                    <h4 class="pull-left name">{{ board.user_id }}</h4>
+                    <h4 class="pull-right date">{{ board.create_date }}</h4>
+                    <br>
+                    <div >
+                    <hr>
+                  </div>
+                 </div>
 
-        <a href="{% url 'board' %}"><div class="box"><div class="bt">목록으로 돌아가기</div></div></a>
+                 <div class="text-left board_content-mid" >
+                 <p>{{ board.message|linebreaksbr }}</p>
+                  </div>
+
+                  <div class="landing-page__board-redot pull-left ">
+                    <a class="landing-page__board-redot-link btn" href="{% url 'board' %}">목록으로 돌아가기</a>
+                  </div>
                 </div>
-        </div>
 
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
     </div>
 {% endblock %}

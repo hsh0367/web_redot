@@ -1,44 +1,42 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/contact_redot.css'%}?ver=5">
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <link href="{% static './css/contact_redot.css' %}" rel="stylesheet">
 {% endblock %}
-{% block main %}
-<div class="header">
-    <div>문의</div>
-</div>
-<div class="content">
+{%  block main %}
+  <div class="landing-page__contact-redot" style="background-color : white;" >
+      <div class="landing-page__contact-redot-title text-center">
+        <h1>문의</h1>
+      </div>
+
+
     <div class="container">
-        <h1>이메일 문의</h1>
-        <form action="">
-          <select name="customer">
-              <option value="defalt">선택</option>
-              <option value="defalt">기업</option>
-              <option value="defalt">일반인</option>
-          </select>
-          <select name="question">
-              <option value="defalt">분류</option>
-              <option value="business">가맹 및 제휴</option>
-              <option value="service">서비스 문의</option>
-              <option value="Hire">채용</option>
-              <option value="etc">기타</option>
-          </select>
-          <input type="text" placeholder="성명 (업체명)" name="name" required>
-          <div class="message">
-            <textarea name="message" rows="20" cols="130"></textarea>
-          </div>
-          <div class="content-button">
-              <button type="submit" class="button">보내기</button>
-          </div>
-    </form>
-    </div>
+      <div class="row landing-page__solutions-row">
+        <div class="col-md-offset-2 col-md-8 landing-page__contact-wrapper text-left">
+            <h3 class="text-left title">이메일 문의</h3>
+
+
+            <div class="contact_message" >
+                  <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="message-top">
+                        {{form.customer_select}}
+                        {{form.question_select}}
+                        {{form.contact_name}}
+                        {{form.contact_email}}
+                    </div>
+                    <div class=" text-left message">
+                        {{form.contact_message}}
+                    </div>
+
+                    <div class="send-contact">
+                      <button type="submit" class="btn pull-right button">보내기</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+  </div>
 </div>
+
 {% endblock %}

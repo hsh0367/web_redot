@@ -1,61 +1,71 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/download_redot.css'%}?ver=5">
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <link href="{% static './css/download.css' %}" rel="stylesheet">
 {% endblock %}
 {% block main %}
-<div class="header">
-    <div>다운로드</div>
-</div>
-<div class="content03">
-        <div class="content03-01">
-            <img src="{% static 'asset/phone.png' %}" class="phone">
-            <div class="content03-02">
-                <div class="title">
-                    <img src="{% static 'asset/logo-black.png' %}">
-                    <h1>어플리케이션</h1>
-                </div>
-                <div class="content">
-                    <div class="text">리닷 어플리케이션은 기존업체에서 제공하지 못한 모바일 포렌식 솔루션을 제공합니다.</div>
-                    <div class="text">또한 리닷 스테이션과 함께 리닷의 전문적인 모바일 포렌식 서비스를 이용하실 수 있습니다.</div>
-                    <div class="text">간편한 모바일 포렌식, 리닷 어플리케이션을 통해 경험해보세요.</div>
-                    <img src="{%static 'asset/google.png' %}">
-                    <img src="{% static 'asset/appstore.png' %}">
-                </div>
-            </div>
+
+
+  <div class="landing-page__download-redot" style="background-color : white;" >
+      <div class="landing-page__download-redot-title text-center">
+        <h1>다운로드</h1>
+      </div>
+
+
+    <div class="landing-page__download-redot-app">
+    <div class="container">
+      <div class="row landing-page__solutions-row">
+        <div class="col-md-offset-1 col-md-3 landing-page__solutions-elem-img-wrapper text-center">
+          <img src="{% static './asset/phone.p' %}ng" alt="">
         </div>
-    <br>
-        <div class="mac-content03-01">
-            <img src="{% static 'asset/mac.png' %}" class="mac">
-            <div class="mac-content03-02">
-                <div class="title">
-                    <img src="{% static 'asset/logo-black.png' %}">
-                    <h1>lite</h1>
-                </div>
-                <div class="content">
-                    <div class="text">리닷 라이트는 가볍고 강력한 PC기반 모바일 포렌식 솔루션 도구입니다.</div>
-                    <div class="text">모바일 환경에서의 제한된 성능을 벗어나 PC를 통해 모바일 포렌식을 제공합니다.</div>
-                    <div class="text"> 보다 간편한 PC기반 모바일 포렌식, 리닷 라이트로 한번에 끝내세요.</div>
-                    <a href="{% url 'download' %}"><div class="box"><div class="bt">다운로드</div></div></a>
 
-                </div>
-         </div>
+        <div class="col-md-7 landing-page__solutions-elem-desc-wrapper">
+          <h3 class="landing-page__solutions-elem-title">
+            <img src="{% static './asset/logo-bl' %}ack.png" alt="">
+            어플리케이션
+          </h3>
+          <p class="landing-page__solutions-elem-description">
+            리닷 어플리케이션은 기존업체에서 제공하지 못한 모바일 포렌식 솔루션을 제공합니다.
+            또한 리닷 스테이션과 함께 리닷의 전문적인 모바일 포렌식 서비스를 이용하실 수 있습니다.
+            간편한 모바일 포렌식, 리닷 어플리케이션을 통해 경험해보세요.
+            </p>
+          <div class="img-wrapper">
+          <img src="{% static './asset/google.' %}png" alt="">
+          <img src="{% static './asset/appstor' %}e.png" alt="">
         </div>
-</div>
-<div class="content06">
-    <div class="background2">
-
-        <H1>기업용 제휴 프로그램 Re. PRO 안내</H1>
-
-           <a href="{% url 'business'%}"><div class="box2"><div class="bt">기업용 페이지로 이동</div></div></a>
+        </div>
+      </div>
     </div>
+  </div>
+
+
+  <div class="landing-page__download-redot-lite">
+    <div class="container">
+      <div class="row landing-page__solutions-row">
+        <div class="col-md-offset-1 col-md-4 landing-page__solutions-elem-img-wrapper text-center">
+          <img src="{% static './asset/mac.png' %}" alt="">
+        </div>
+
+        <div class="col-md-7 landing-page__solutions-elem-desc-wrapper">
+          <h3 class="landing-page__solutions-elem-title">
+            <img src="{% static './asset/logo-bl' %}ack.png" alt="">
+            lite
+          </h3>
+          <p class="landing-page__solutions-elem-description">
+          리닷 라이트는 가볍고 강력한 PC기반 모바일 포렌식 솔루션 도구입니다.
+          모바일 환경에서의 제한된 성능을 벗어나 PC를 통해 모바일 포렌식을 제공합니다.
+          보다 간편한 PC기반 모바일 포렌식, 리닷 라이트로 한번에 끝내세요.
+            </p>
+            <a class="btn landing-page__download-link" href="#">다운로드</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing-page__sponship text-center">
+    <h2>기업용 제휴 프로그램 Re.Pro 안내</h2>
+    <a class="btn landing-page__sponship-link" href="#">기업용 페이지로 이동</a>
+  </div>
 </div>
 {% endblock %}

@@ -1,49 +1,54 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login_redot.css'%}?ver=4">
-    <!-- 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-    <!-- 부가적인 테마 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <link href="{% static './css/login.css' %}" rel="stylesheet">
 {% endblock %}
 {% block main %}
-<div class="header">
-    <div>로그인</div>
-</div>
-<div class="content">
-    <div class="content00">
-        <h1>회원 로그인</h1>
-      <div class="container">
-          <form action="" method="post">
-              {% csrf_token %}
-              <div class="username" >
-                {{  form.username }}
-              </div>
-              <div class="password">
-                {{ form.password }}
-              </div>
-              <button type="submit" class="button">로그인</button>
-          </form>
+  <div class="landing-page__login-redot" style="background-color : white;" >
+      <div class="landing-page__login-redot-title text-center">
+        <h1>로그인</h1>
       </div>
 
+
+    <div class="landing-page__login-redot-contnet">
+    <div class="container">
+      <div class="row landing-page__solutions-row">
+        <div class="col-md-offset-4 col-md-4 landing-page__login-wrapper text-center">
+            <h3>회원로그인</h3>
+          <div class="landing-page__login-redot-input">
+            <form>
+              {% csrf_token %}
+              <div class="input_username">
+                {{form.username}}
+              </div>
+
+              <div class="input_password">
+                {{form.password}}
+              </div>
+
+              <button type="submit" class="btn login_button"><p>로그인</p></button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+        <div class="row landing-page__solutions-row">
+        <div class="col-md-offset-4 col-md-4 landing-page__register-wrapper text-center">
+          <h3>회원가입</h3>
+
+          <p>
+            리닷의 다양한 서비스와 이벤트를<br>
+            만나 보실수 있습니다.
+          </p>
+          <div class="landing-page__register">
+            <a class="btn landing-page__register-link" href="{% url 'register' %}">회원가입</a>
+          </div>
+        </div>
+
+
+      </div>
     </div>
-    <div class="content01">
-    <h1>회원가입</h1>
-    <p>리닷의 다양한 서비스와 이벤트를</p>
-    <p>만나 보실수 있습니다.</p>
-
-        <a href="{% url 'signin' %}">
-                <button type="submit" class="button" >회원가입</button>
-        </a>
-    </div>
-</div>
-<div>
-
-
+  </div>
 </div>
 {% endblock %}

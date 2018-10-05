@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+  <link href="{% static './css/register.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+
+  <div class="landing-page__register-redot" style="background-color : white;" >
+      <div class="landing-page__register-redot-title text-center">
+        <h1>회원가입</h1>
+      </div>
+
+
+    <div class="landing-page__register-redot-contnet">
+    <div class="container">
+
+      <div class="row landing-page__solutions-row">
+        <div class="col-md-offset-4 col-md-4 landing-page__register-wrapper text-center">
+            <h3>회원 가입</h3>
+          <div class="landing-page__register-redot-input">
+            <form  method="post">
+              {% csrf_token %}
+              {% if form.email.errors %}
+                <p style="color: red;">이미 등록된 이메일입니다.</p>
+              {% endif %}
+              {% if form.username.errors %}
+                <p style="color: red;">이미 등록된 아이디입니다.</p>
+              {% endif %}
+              {% if form.password2.errors %}
+                <p style="color: red;">비밀번호가 일치하지 않습니다.</p>
+              {% endif %}
+
+
+              <p>이메일</p>
+              {{ form.email }}<br>
+              <p>아이디</p>
+              {{ form.username }}<br>
+              <p>비밀번호</p>
+              {{ form.password1 }}<br>
+              <p>재확인</p>
+              {{ form.password2 }}<br>
+
+              <button type="submit" class="btn button"><p>회원가입</p></button>
+            </form>
+          </div>
+
+          <div class="landing-page__main-redot">
+            <a class="btn landing-page__main-link" href="{% url 'main' %}"> 홈으로</a>
+          </div>
+
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
