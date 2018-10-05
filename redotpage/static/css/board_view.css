@@ -1,0 +1,78 @@
+.landing-page__board_new-redot-title{
+  background-color: #dd4545;
+  color: white;
+}
+.landing-page__board_view-redot-title > h1{
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.landing-page__board_view-wrapper{
+  margin-top: 55px;
+  margin-bottom: 135px;
+}
+.landing-page__board_view-wrapper >h3{
+  margin-bottom:50px;
+  font-size: 30px;
+  font-weight: 900;
+}
+.board_content-top{
+  margin: 100px auto;
+}
+
+.board_content-top > .title {
+  margin-top: 15px;
+
+  font-size: 16px;
+  font-weight: bold;
+}
+.board_content-top > .name{
+  margin-top: 15px;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: 500;
+
+}
+.board_content-top > .date {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
+
+}
+
+.board_content-top > hr{
+  margin-top:30px;
+
+}
+@media (max-width: 400px) {
+  .board_content-top {
+
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+
+  }
+  .board_content-top > hr {
+    margin-top:70px;
+  }
+}
+.landing-page__board-redot{
+  margin: 25px auto;
+}
+
+.landing-page__board-redot-link,
+.landing-page__board-redot-link:visited {
+  width: 150px;
+  height: 45px
+  display: block;
+  margin: auto;
+  color: #ffffff;
+  font-size: 10px;
+  background-color: #2d2d2d;
+}
+.landing-page__board-redot-link:hover {
+  color: #fff;
+  background-color: #2d2d2d;
+}

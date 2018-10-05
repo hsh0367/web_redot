@@ -1,0 +1,98 @@
+.landing-page__login-redot{
+}
+.landing-page__login-redot-title{
+  background-color: #dd4545;
+  color: white;
+}
+.landing-page__login-redot-title > h1{
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size: 50px;
+  font-weight: 900;
+}
+.landing-page__login-wrapper{
+  margin-top:90px;
+}
+.landing-page__login-wrapper > h3{
+   margin-bottom: 30px;
+   font-size: 30px;
+   font-weight: 900;
+}
+.landing-page__login-wrapper > p{
+   margin-bottom: 20px;
+   font-size: 17px;
+   font-weight: 500;
+}
+.input_username > input[type=text]{
+  margin-bottom: 10px;
+  border: solid 2px #2d2d2d;
+  width: 225px;
+  height: 40px;
+  font-size: 17px;
+  font-weight: 500;
+  padding-left: 15px;
+}
+.input_password > input[type=password]{
+  margin-bottom: 10px;
+  border: solid 2px #2d2d2d;
+  width: 225px;
+  height: 40px;
+  font-size: 17px;
+  font-weight: 500;
+  padding-left: 15px;
+}
+.login_button > p{
+    margin-top:0px;
+}
+.login_button,
+.login_button:visited {
+  width: 225px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #dd4545;
+  color: white;
+
+}
+.login_button:hover {
+  color: #fff;
+  background-color: #bb3232;
+}
+
+.landing-page__register-wrapper{
+  margin-top: 55px;
+  margin-bottom: 135px;
+}
+.landing-page__register-wrapper >h3{
+  margin-bottom:35px;
+  font-size: 30px;
+  font-weight: 900;
+}
+.landing-page__register-wrapper >p{
+  margin-bottom: 30px
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.landing-page__register{
+  margin-top: 35px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.landing-page__register-link,
+.landing-page__register-link:visited {
+  width: 225px;
+  height: 40px
+  display: block;
+  margin: auto;
+  padding: 10px 0;
+  color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  background-color: #dd4545;
+}
+.landing-page__register-link:hover {
+  color: #fff;
+  background-color: #bb3232;
+}

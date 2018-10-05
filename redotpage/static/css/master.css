@@ -1,0 +1,148 @@
+@import url(https://cdn.rawgit.com/theeluwin/NotoSansKR-Hestia/master/stylesheets/NotoSansKR-Hestia.css);
+
+* {
+  word-break: keep-all;
+}
+
+body {
+  margin: 0;
+  background-color: #2d2d2d;
+  font-family: 'Noto Sans Korean', sans-serif;
+  color: #2d2d2d;
+}
+
+.text-brand {
+  color: #dd4545;
+}
+
+.topnav {
+  height: 80px;
+  background-color: #2d2d2d;
+  border-bottom: 3px solid #dd4545;
+  overflow-y: hidden;
+}
+.topnav-opened {
+  height: auto;
+  overflow-y: auto;
+}
+
+.topnav > .container {
+}
+
+.topnav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topnav-list > li {
+  display: inline-block;
+  vertical-align: top;
+  max-height: 80px;
+}
+
+.topnav-list > li > a,
+.topnav-list > li > a:visited {
+  display: block;
+  padding: 29px 16px;
+  font-size: 19px;
+  color: white;
+  text-decoration: none;
+  line-height: 1;
+  transition: all 0.3s ease-out;
+}
+/*
+.topnav-list > li > a::after {
+  display: block;
+  content: ' ';
+  width: 0%;
+  height: 2px;
+  margin: auto;
+  margin-top: 7px;
+  background-color: #dd4545;
+  transition: width 0.3s ease-out;
+}
+.topnav-list > li > a:hover::after {
+  width: 100%;
+}
+*/
+.topnav-list > li > a:hover,
+.topnav-list > li > a:focus {
+  background-color: #efefef;
+  color: #2d2d2d;
+}
+
+.topnav-list > .logo-wrapper {
+  display: inline-block;
+  width: 84px;
+  height: 80px;
+  margin-right: 51px;
+}
+.topnav-list > .logo-wrapper > a {
+  padding: 18px 0;
+}
+.topnav-list > .logo-wrapper > a:hover {
+  background: none;
+  color: #fff;
+}
+
+.topnav-login-btn-wrapper {
+  float: right;
+}
+.topnav-list > .topnav-login-btn-wrapper > a,
+.topnav-list > .topnav-login-btn-wrapper > a:visited {
+  color: #dd4545;
+  font-weight: bold;
+}
+
+.topnav-list > .topnav-list-open-wrapper {
+  display: none;
+}
+.topnav-list > .topnav-list-open-wrapper > * {
+  width: 80px;
+  height: 80px;
+  background: none;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 24px;
+}
+
+@media (max-width: 900px) {
+  .topnav-list > li {
+    display: block;
+  }
+
+  .logo-wrapper {
+    display: inline-block;
+  }
+
+  .topnav-login-btn-wrapper {
+    float: none;
+  }
+
+  .topnav-list > .topnav-list-open-wrapper {
+    display: inline-block;
+    float: right;
+  }
+}
+
+
+
+.footer {
+  min-height: 250px;
+  padding: 45px 0;
+  color: #fff;
+  font-size: 15px;
+  background-color: #2d2d2d;
+}
+.footer-copyright-holder {
+  margin: 25px;
+}
+.footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer ul > li {
+  padding: 5px 0;
+}
