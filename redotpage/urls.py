@@ -5,12 +5,14 @@ from .import views
 
 
 urlpatterns = [
+
+    #url(r'^business/$', views.main_business, name='business'),
+    # url(r'^pr/$', views.pr, name='pr'),
     url(r'^$', views.main, name='main'),
-    url(r'^business/$', views.main_business, name='business'),
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^download/$', views.download, name='download'),
     url(r'^signin/$', views.signIn, name='signin'),
-    url(r'^pr/$', views.pr, name='pr'),
+    url(r'^error/login/$', views.require, name='require'),
     url(r'^board/$', views.board, name='board'),
     url(r'^board/view/(?P<pk>\d+)/$', views.board_view, name='board_view'),
     url(r'^board/new/$', views.board_new, name='board_new'),
@@ -21,6 +23,6 @@ urlpatterns = [
         views.activate, name='activate'),
 
     url(r'^signout/$', logout, {'next_page': 'main'}, name='logout'),
-    url(r'^testdownload/$', views.testdownload, name='testdownload'),
+    #url(r'^testdownload/$', views.testdownload, name='testdownload'),
 
 ]

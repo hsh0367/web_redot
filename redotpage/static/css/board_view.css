@@ -1,4 +1,4 @@
-.landing-page__board_new-redot-title{
+.landing-page__board_view-redot-title{
   background-color: #dd4545;
   color: white;
 }
@@ -19,31 +19,25 @@
   font-weight: 900;
 }
 .board_content-top{
-  margin: 100px auto;
+  margin-top: 100px;
+  margin-bottom: 30px;
+
 }
 
 .board_content-top > .title {
-  margin-top: 15px;
-
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
 }
-.board_content-top > .name{
-  margin-top: 15px;
+.board_content-top > p {
+  padding-top: 15px;
   margin-left: 20px;
-  font-size: 16px;
-  font-weight: 500;
-
-}
-.board_content-top > .date {
-  margin-top: 15px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
 
 }
 
 .board_content-top > hr{
-  margin-top:30px;
+  margin-bottom:0px;
 
 }
 @media (max-width: 400px) {
@@ -54,9 +48,6 @@
     display: inline-block;
 
   }
-  .board_content-top > hr {
-    margin-top:70px;
-  }
 }
 .landing-page__board-redot{
   margin: 25px auto;
@@ -64,13 +55,13 @@
 
 .landing-page__board-redot-link,
 .landing-page__board-redot-link:visited {
-  width: 150px;
-  height: 45px
+  width: 100px;
+  height: 50px
   display: block;
   margin: auto;
   color: #ffffff;
-  font-size: 10px;
-  background-color: #2d2d2d;
+  font-size: 17px;
+  background-color:  #dd4545;
 }
 .landing-page__board-redot-link:hover {
   color: #fff;

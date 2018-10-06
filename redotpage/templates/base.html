@@ -1,36 +1,103 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>스마트폰 데이터 복구 솔루션 - Re.</title>
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="{% static './css/bootstrap.min.css' %}" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="{% static './css/master.css' %}" rel="stylesheet">
     {% block css %}{% endblock %}
 
+  <title>스마트폰 데이터 복구 솔루션 - Re.</title>
 </head>
 <body>
-<div class="topnav">
-  <a href="{% url 'main' %}" class="top-logo"><img src="{%static 'asset/logo-header.png' %}"></a>
-  <a class="list" href="{% url 'main' %}">리닷에 대하여</a>
-  <a class="list" href="{% url 'download' %}">다운로드</a>
-  <a class="list" href="{% url 'board' %}">자유게시판</a>
-  <a class="list" href="{% url 'contact' %}">문의</a>
-  <a class="list" href="{% url 'signin' %}" id="topnav">로그인</a>
-</div>
-{% block main %}{% endblock %}
+  <nav id="topnav" class="topnav topnav-opened">
+    <div class="container">
+      <ul class="topnav-list clearfix">
+        <li class="logo-wrapper">
+          <a href="{% url 'main' %}">
+            <img src="{% static './asset/logo-header.png' %}" alt="Brand logo">
+          </a>
+        </li>
+        <li class="topnav-list-open-wrapper">
+          <button class="btn" role="button" onclick="openNav()">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </li>
 
-<div class="footer">
-    <div class="center">
-            <div class="logo">
-        <img src="{%static 'asset/logo-footer.png' %}" >
-        <p>ALL RIGHTS RESERVED BY RE.</p>
-    </div>
-    <div class="left">
-            <p>상호명 : The Spot.</p>
-            <p>E-Mail : nsh1189@gmail.com</p>
-            <p>주소 : 강원도 춘천시 강원대학길 1 공학 6호관 212호, The Spot.</p>
-    </div>
+        <li>
+          <a href="{% url 'main' %}">리닷에 대하여</a>
+        </li>
+        <li>
+          <a href="{% url 'download' %}">다운로드</a>
+        </li>
+        <li>
+          <a href="{% url 'board' %}">자유 게시판</a>
+        </li>
+        <li>
+          <a href="{% url 'contact' %}">문의</a>
+        </li>
 
+
+         {% if user.is_authenticated %}
+        <li class="topnav-login-btn-wrapper">
+          <a href="{% url 'logout' %}">로그아웃</a>
+        </li>
+         {% else %}
+          <li class="topnav-login-btn-wrapper">
+          <a href="{% url 'signin' %}">로그인</a>
+        </li>
+        {% endif %}
+      </ul>
     </div>
-</div>
-</body>
-</html>
+  </nav>
+
+  {% block main %}
+
+  {% endblock %}
+
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <div>
+            <img src="{% static './asset/logo-footer.png' %}" alt="">
+          </div>
+          <p class="footer-copyright-holder">
+            ALL RIGHTS RESERVED BY Re.
+          </p>
+        </div>
+
+        <div class="col-md-4">
+          <ul>
+            <li>법인명: 리닷</li>
+            <li>대표: 나성훈</li>
+            <li>사업자 등록번호: 000-00-00000</li>
+            <li>통신판매업 제 0000-0000-00000 호</li>
+          </ul>
+        </div>
+
+        <div class="col-md-4">
+          <ul>
+            <li>상호명 : The Spot.</li>
+            <li>E-Mail : redot.help@gmail.com</li>
+            <li>주소 : 강원도 춘천시 강원대학길 1 공학 6호관 212호, The Spot.</li>
+            <li>
+              리닷은 기업 가치에 부업하는 인재를 항상 찾고 있습니다.
+              연락 부탁드립니다.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  function openNav() {
+    document.getElementById('topnav')
+      .classList.toggle('topnav-opened');
+  }
+  </script>
+</body></html>

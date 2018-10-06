@@ -21,21 +21,18 @@
 
 
                  <div class="board_content-top">
-                    <h4 class="pull-left title">{{ board.title }}</h4>
-                    <h4 class="pull-left name">{{ board.user_id }}</h4>
-                    <h4 class="pull-right date">{{ board.create_date }}</h4>
+                    <h4 class="pull-left title">{{ board.board_title }}</h4>
+                    <p class="pull-left name">{{ board.user_id }}</p>
+                    <p class="pull-right date">{{ board.create_date }}</p>
                     <br>
-                    <div >
-                    <hr>
-                  </div>
                  </div>
-
+                    <hr>
                  <div class="text-left board_content-mid" >
                  <p>{{ board.message|linebreaksbr }}</p>
                   </div>
 
-                  <div class="landing-page__board-redot pull-left ">
-                    <a class="landing-page__board-redot-link btn" href="{% url 'board' %}">목록으로 돌아가기</a>
+                  <div class="landing-page__board-redot pull-right ">
+                    <a class="landing-page__board-redot-link btn" href="{% url 'board' %}">목록으로</a>
                   </div>
                 </div>
 

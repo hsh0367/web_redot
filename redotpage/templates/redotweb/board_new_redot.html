@@ -19,9 +19,9 @@
         <div class="row landing-page__row">
           <div class="col-md-offset-2 col-md-8 landing-page__board_new-wrapper text-left">
 
-            <form action="">
+            <form method="post">
               <div class="landgin-page__board_new-content">
-
+              {% csrf_token %}
                      <div class="board_content-top">
                          {{ form.board_title }}
                       </div>

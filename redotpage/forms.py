@@ -1,67 +1,59 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
+from .models import Board
 
-from .models import *
 
 class LoginForm(forms.ModelForm):
     username = forms.CharField(label='username',widget=forms.TextInput(attrs={'placeholder': '아이디'}))
     password = forms.CharField(label='password',widget=forms.PasswordInput(attrs={'placeholder': '비밀번호'}))
+
     class Meta:
         model = User
         fields = ['username', 'password']
 
 
-class UserForm(forms.ModelForm):
-    username = forms.CharField(label='username',widget=forms.TextInput(attrs={'placeholder': '아이디'}))
-    email = forms.CharField(label='email',widget=forms.EmailInput(attrs={'placeholder': '이메일'}))
-    password = forms.CharField(label='password',widget=forms.PasswordInput(attrs={'placeholder': '비밀번호'}))
-
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password']
-
-
 
 
 class SignupForm(UserCreationForm):
-    email = forms.EmailField(max_length=255, label='email', widget=forms.TextInput(attrs={'placeholder': '이메일'}))
+    email = forms.EmailField(max_length=255, label='email', widget=forms.EmailInput(attrs={'placeholder': '이메일'}))
     username = forms.CharField(label='username', widget=forms.TextInput(attrs={'placeholder': '아이디'}))
     password1 = forms.CharField(label='password1', widget=forms.PasswordInput(attrs={'placeholder': '비밀번호'}))
     password2 = forms.CharField(label='password2', widget=forms.PasswordInput(attrs={'placeholder': '재확인'}))
 
-    class Meta:
-        model = TestUser
-        fields = ('email', 'username', 'password1', 'password2')
 
-#
-# class BoardForm(forms.Form):
-#     title = forms.CharField(
-#         widget=forms.TextInput(
-#             attrs={
-#                 'class': 'form-control',
-#             }
-#         )
-#     )
-#     message = forms.CharField(
-#         widget=forms.Textarea(
-#             attrs={
-#                 'class':'form-fontrol',
-#             }
-#         )
-#     )
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if not email:
+            raise ValidationError("이메일이 비어있습니다.")
+        if User.objects.filter(email=self.cleaned_data['email']).count():
+            raise ValidationError("이미 등록된 이메일 입니다.")
+        return self.cleaned_data['email']
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if not ValidationError:
+            raise ValidationError("이메일이 비어있습니다.")
+        if User.objects.filter(email=self.cleaned_data['username']).count():
+            raise ValidationError("이미 등록된 아이디 입니다.")
+        return self.cleaned_data['username']
+
+    class Meta:
+        model = User
+        fields = ['email', 'username', 'password1','password2' ]
+
+
 class BoardForm(forms.ModelForm):
     board_title = forms.CharField(label='title',
-                    widget=forms.TextInput(attrs={'placeholder': '제목'}))
+                    widget=forms.TextInput(attrs={'placeholder': '제목','class':'form-control title'}))
     message = forms.CharField(label='title',
-                    widget=forms.Textarea(attrs={'placeholder': '내용'}))
+                    widget=forms.Textarea(attrs={'placeholder': '내용','class': 'form-control text'}))
 
     class Meta:
         model = Board
         fields = ('board_title', 'message',)
-
-
 
 
 class contact_form(forms.Form):
@@ -77,33 +69,3 @@ class contact_form(forms.Form):
         required=True,
         widget=forms.Textarea
     )
-
-
-class TestContactForm(forms.Form):
-    contact_name = forms.CharField(required=True)
-    contact_email = forms.EmailField(required=True)
-    content = forms.CharField(
-        required=True,
-        widget=forms.Textarea
-    )
-
-    # the new bit we're adding
-    def __init__(self, *args, **kwargs):
-        super(TestContactForm, self).__init__(*args, **kwargs)
-        self.fields['contact_name'].label = "Your name:"
-        self.fields['contact_email'].label = "Your email:"
-        self.fields['content'].label = "What do you want to say?"
-
-
-
-class Test_SignupForm(UserCreationForm):
-
-    email = forms.EmailField(max_length=255, label='email', widget=forms.TextInput(attrs={'placeholder': '이메일'}))
-    username = forms.CharField(label='username', widget=forms.TextInput(attrs={'placeholder': '아이디'}))
-    password1 = forms.CharField(label='password1', widget=forms.PasswordInput(attrs={'placeholder': '비밀번호'}))
-    password2 = forms.CharField(label='password2', widget=forms.PasswordInput(attrs={'placeholder': '재확인'}))
-
-
-    class Meta:
-        model = TestUser
-        fields = ('email','username', 'password1', 'password2')

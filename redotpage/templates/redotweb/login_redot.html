@@ -16,8 +16,12 @@
         <div class="col-md-offset-4 col-md-4 landing-page__login-wrapper text-center">
             <h3>회원로그인</h3>
           <div class="landing-page__login-redot-input">
-            <form>
+            <form method="post">
               {% csrf_token %}
+              {% if form.errors %}
+                <p style="color: red; font-size: 17px;">아이디와 비밀번호가 일치하지않습니다.</p>
+              {% endif %}
+
               <div class="input_username">
                 {{form.username}}
               </div>
