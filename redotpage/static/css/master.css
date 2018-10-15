@@ -14,7 +14,7 @@ body {
 .text-brand {
   color: #dd4545;
 }
-
+dd4545
 .topnav {
   height: 80px;
   background-color: #2d2d2d;
@@ -65,6 +65,7 @@ body {
   width: 100%;
 }
 */
+
 .topnav-list > li > a:hover,
 .topnav-list > li > a:focus {
   background-color: #efefef;
@@ -96,33 +97,23 @@ body {
 
 .topnav-list > .topnav-list-open-wrapper {
   display: none;
+
+    position: absolute;
+    right: 20px;
+    top: 10px;
 }
 .topnav-list > .topnav-list-open-wrapper > * {
-  width: 80px;
+/*  width: 80px;
   height: 80px;
   background: none;
   color: #fff;
   border-radius: 10px;
   font-size: 24px;
-}
-
-@media (max-width: 900px) {
-  .topnav-list > li {
+  */
     display: block;
-  }
-
-  .logo-wrapper {
-    display: inline-block;
-  }
-
-  .topnav-login-btn-wrapper {
-    float: none;
-  }
-
-  .topnav-list > .topnav-list-open-wrapper {
-    display: inline-block;
-    float: right;
-  }
+    border-bottom: 1px solid;
+    color: #fff;
+    height: 1px;
 }
 
 
