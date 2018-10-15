@@ -21,7 +21,6 @@
           <div class="landing-page__register-redot-input">
             <form  method="post">
               {% csrf_token %}
-              {{ form.errors }}
               {% if form.email.errors %}
                 <p style="color: red;">이미 등록된 이메일입니다.</p>
               {% endif %}
