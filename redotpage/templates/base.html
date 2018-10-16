@@ -4,7 +4,7 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="{% static './css/master.css' %}" rel="stylesheet">
 
     {% block css %}{% endblock %}
@@ -20,13 +20,14 @@
             <img src="{% static './asset/logo-header.png' %}" alt="Brand logo">
           </a>
         </li>
-        <li class="topnav-list-open-wrapper">
+       <li class="topnav-list-open-wrapper">
           <button class="btn" role="button" onclick="openNav()">
-
-            <span class="glyphicon glyphicon-align-justify"></span>
-
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
         </li>
+
 
         <li>
           <a href="{% url 'main' %}">리닷에 대하여</a>

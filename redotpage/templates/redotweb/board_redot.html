@@ -15,29 +15,29 @@
     <div class="container">
 
       <div class="row landing-page__solutions-row">
-        <div class="col-md-offset-1 col-md-10 landing-page__board-wrapper text-center">
+        <div class="col-sm-12 landing-page__board-wrapper text-center">
 
           <div class="landing-page__board-redot">
               <table class="table table-fixed table-hover" id="task-table">
                <thead class="pull-center">
                      <div class="row landing-page__board-row">
                       <tr>
-                       <th class="col-md-1">번호</th>
-                       <th class="col-md-6">제목</th>
-                       <th class="col-md-2">작성자</th>
-                       <th class="col-md-2">날짜</th>
-                       <th class="col-md-1">조회수</th>
+                       <th class="col-sm-2">번호</th>
+                       <th class="col-sm-4">제목</th>
+                       <th class="col-sm-2">작성자</th>
+                       <th class="col-sm-2">날짜</th>
+                       <th class="col-sm-2">조회수</th>
                      </tr>
                      </div>
                </thead>
                <tbody class="pull-center">
                  {% for a in boards %}
                    <tr>
-                    <td>{{ a.number }} </td>
-                    <td><a href="{% url 'board_view' pk=a.pk %}">{{ a.board_title }}</a></td>
-                    <td>{{ a.user_id }}</td>
-                    <td> {{ a.create_date }} </td>
-                    <td> {{ a.hit }} </td>
+                    <td class="col-sm-2">{{ a.number }} </td>
+                       <td class="col-sm-4"><a href="{% url 'board_view' pk=a.pk %}">{{ a.board_title }}</a></td>
+                    <td class="col-sm-2">{{ a.user_id }}</td>
+                    <td class="col-sm-2"> {{ a.create_date }} </td>
+                    <td class="col-sm-2"> {{ a.hit }} </td>
                    </tr>
                 {% endfor %}
                </tbody>
@@ -72,11 +72,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-
       </div>
     </div>
   </div>

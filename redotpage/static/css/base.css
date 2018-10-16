@@ -55,8 +55,8 @@
 }
 .img .content p{
 
-    margin:5px;
-    padding:0px;
+  margin:5px;
+  padding:0px;
   font-size: 20px;
   font-weight: normal;
   font-style: normal;
@@ -68,7 +68,7 @@
 }
 
 .topnav {
-    overflow:hidden;
+  overflow:hidden;
   padding-left:20%;
   padding-right:20%;
   overflow: hidden;
@@ -153,7 +153,7 @@ float: right;
 .footer .center{
   display:inline-block;
   margin: 0px auto;
-padding-bottom: 48px;
+  padding-bottom: 48px;
 }
 .footer div{
 display :inline-block;
