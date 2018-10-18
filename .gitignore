@@ -28,7 +28,6 @@ Thumbs.db
 
 # redot file #
 *.splite3
-__init__.py
 __pycache__
 /redotweb/
-migrations/
+
