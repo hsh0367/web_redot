@@ -17,29 +17,30 @@
     <div class="container">
 
       <div class="row landing-page__solutions-row">
-        <div class="col-sm-12 landing-page__board-wrapper text-center">
+        <div class="col-lg-offset-2 col-lg-8 landing-page__board-wrapper text-left">
 
           <div class="landing-page__board-redot">
               <table class="table table-fixed table-hover" id="task-table">
                <thead class="pull-center">
                      <div class="row landing-page__board-row">
                       <tr>
-                       <th class="col-sm-2">번호</th>
-                       <th class="col-sm-4">제목</th>
-                       <th class="col-sm-2">작성자</th>
-                       <th class="col-sm-2">날짜</th>
-                       <th class="col-sm-2">조회수</th>
+                       <th class="col-lg-2">번호</th>
+                       <th class="col-lg-4">제목</th>
+                       <th class="col-lg-2">작성자</th>
+                       <th class="col-lg-2">날짜</th>
+                       <th class="col-lg-2">조회수</th>
                      </tr>
                      </div>
                </thead>
-               <tbody class="pull-center">
+               <tbody class="pull-center text-center">
+
                  {% for a in boards %}
                    <tr>
-                    <td class="col-sm-2">{{ a.number }} </td>
-                       <td class="col-sm-4"><a href="{% url 'board_view' pk=a.pk %}">{{ a.board_title }}</a></td>
-                    <td class="col-sm-2">{{ a.user_id }}</td>
-                    <td class="col-sm-2"> {{ a.create_date }} </td>
-                    <td class="col-sm-2"> {{ a.hit }} </td>
+                    <td class="col-lg-2">{{ a.number }} </td>
+                    <td class="col-lg-4"><a href="{% url 'board_view' pk=a.pk %}">{{ a.board_title }}</a></td>
+                    <td class="col-lg-2">{{ a.user_id }}</td>
+                    <td class="col-lg-2"> {{ a.create_date }} </td>
+                    <td class="col-lg-2"> {{ a.hit }} </td>
                    </tr>
                 {% endfor %}
                </tbody>
