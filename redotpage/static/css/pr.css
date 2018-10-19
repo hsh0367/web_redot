@@ -2,19 +2,7 @@
   background-color: white;
   padding-bottom : 50px;
 }
-.landing-page__pr-redot-title {
 
-  background-color: #dd4545;
-  color: white;
-}
-
-.landing-page__pr-redot-title > h1 {
-  padding-top:  25px;
-  padding-bottom: 25px;
-  font-size: 50px;
-  font-weight: 900;
-
-}
 .landing-page__pr-redot-app {
   margin-top: 100px;
 }

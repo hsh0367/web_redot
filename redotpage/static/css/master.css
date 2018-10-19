@@ -5,8 +5,10 @@
 }
 
 body {
-  margin: 0;
-  background-color: #2d2d2d;
+  margin-bottom: 0;
+  padding:0.1px;
+
+  /*background-color: #2d2d2d;*/
   font-family: 'Noto Sans Korean', sans-serif;
   color: #2d2d2d;
 }
@@ -19,6 +21,8 @@ body {
   height: 80px;
   background-color: #2d2d2d;
   overflow-y: hidden;
+  margin-bottom:0x;
+
 }
 .topnav-opened {
   height: auto;
@@ -26,6 +30,7 @@ body {
 }
 
 .topnav > .container {
+    margin-bottom: 0px;
 }
 
 .topnav-list {
@@ -124,10 +129,6 @@ body {
     float: right;
   }
 }
-
-
-
-
 .footer {
   min-height: 250px;
   padding: 45px 0;
@@ -145,4 +146,19 @@ body {
 }
 .footer ul > li {
   padding: 5px 0;
+}
+
+.redotpage-title {
+    margin:0;
+    padding:0;
+    height: 100px;
+    background-color: #dd4545;
+}
+.redotpage-title > .container > h1{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 50px;
+    font-weight: 900;
+    color: white;
+
 }

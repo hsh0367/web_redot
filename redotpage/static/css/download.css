@@ -1,18 +1,20 @@
+
+.redotpage-title {
+    margin:0;
+    padding:0;
+    height: 100px;
+    background-color: #dd4545;
+}
+.redotpage-title > .container > h1{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 50px;
+    font-weight: 900;
+    color: white;
+
+}
 .landing-page__download-redot{
   background-color: white;
-}
-.landing-page__download-redot-title {
-
-  background-color: #dd4545;
-  color: white;
-}
-
-.landing-page__download-redot-title > h1 {
-  padding-top:  25px;
-  padding-bottom: 25px;
-  font-size: 50px;
-  font-weight: 900;
-
 }
 .landing-page__download-redot-app {
   margin-top: 100px;

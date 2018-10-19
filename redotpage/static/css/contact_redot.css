@@ -1,13 +1,4 @@
-.landing-page__contact-redot-title{
-  background-color: #dd4545;
-  color: white;
-}
-.landing-page__contact-redot-title > h1{
-  padding-top: 25px;
-  padding-bottom: 25px;
-  font-size: 50px;
-  font-weight: 900;
-}
+
 .landing-page__contact-wrapper{
   margin-top: 100px;
 }
