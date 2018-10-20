@@ -1,31 +1,13 @@
 
 .landing-page__contact-wrapper{
-  margin-top: 100px;
+  margin-top: 93px;
+  margin-bottom: 68px;
 }
 .landing-page__contact-wrapper > h3{
-   margin-bottom: 30px;
    font-size: 30px;
    font-weight: 900;
 }
 
-
-.landing-page__contact-wrapper{
-  margin-top: 150px;
-  margin-bottom: 135px;
-}
-.landing-page__contact-wrapper >h3{
-  margin-bottom:35px;
-  font-size: 30px;
-  font-weight: 900;
-}
-
-.landing-page__contact{
-  margin:100px auto;
-
-  font-size: 12px;
-  font-weight: bold;
-
-}
 .message-top{
   margin-top: 25px;
   margin-bottom: 35px;
@@ -69,7 +51,7 @@
 }
 .send-contact > button,
 .send-contact > button:visited {
-  width: 100px;
+  width: 150px;
   height: 40px
   display: block;
   margin: 10px 0;
@@ -82,4 +64,9 @@
 .send-contact-link:hover {
   color: #fff;
   background-color: #bb3232;
+}
+
+
+.landing-page__solutions-row {
+    margin-bottom: 0px;
 }

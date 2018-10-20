@@ -1,5 +1,5 @@
 .landing-page__login-wrapper{
-  margin-top:90px;
+  margin-top:93px;
 }
 .landing-page__login-wrapper > h3{
    margin-bottom: 30px;
@@ -12,7 +12,7 @@
    font-weight: 500;
 }
 .landing-page__login-redot-contnet{
-    margin-top: 50px;
+
 }
 
 .input_username > input[type=text]{
@@ -60,10 +60,11 @@
   font-size: 30px;
   font-weight: 900;
 }
-.landing-page__register-wrapper > p{
+.landing-page__register-wrapper > h4{
   margin-bottom: 30px
   font-size: 20px;
   font-weight: 500;
+
 }
 
 .landing-page__register{

@@ -32,7 +32,7 @@
   height: 40px;
   background-color: #dd4545;
   color: white;
-
+  font-size: 17px;
 }
 .landing-page__register-redot-input > form > button:hover {
   color: #fff;
@@ -61,4 +61,8 @@
 .landing-page__main-link:hover {
   color: #fff;
   background-color: #bb3232;
+}
+h4{
+font-size : 17px;
+font-weight: 500;
 }

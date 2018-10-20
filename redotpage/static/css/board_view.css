@@ -11,7 +11,6 @@
 .board_content-top{
   margin-top: 100px;
   margin-bottom: 30px;
-
 }
 
 .board_content-top > .title {
@@ -56,4 +55,9 @@
 .landing-page__board-redot-link:hover {
   color: #fff;
   background-color: #2d2d2d;
+}
+hr{
+    border-bottom-style: solid;
+    border-bottom-color: #2d2d2d;
+    border-bottom-width: 1px;
 }

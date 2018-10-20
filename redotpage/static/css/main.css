@@ -164,6 +164,9 @@
 .landing-page__opened-anyone > .container p {
   font-size: 20px;
   line-height: 2;
+  color: red;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 

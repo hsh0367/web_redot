@@ -57,7 +57,8 @@
 
 
 .landing-page__sponship {
-  padding: 95px 0;
+  padding-top: 95px;
+  padding-bottom: 52px;
   background-color: #f6f6f6;
 }
 .landing-page__sponship > h2 {
@@ -67,17 +68,22 @@
   font-size: 33px;
   font-weight: bold;
 }
+.landing-page__sponship-link > p{
+  margin-top: 8px;
+  padding:0;
+  color: #fff;
+  font-size: 21px;
+  font-weight: 500
+}
 .landing-page__sponship-link,
 .landing-page__sponship-link:visited {
   display: block;
-  max-width: 277px;
+  width: 277px;
+  height: 55px;
   margin: auto;
-  padding: 30px 0;
-  color: #fff;
-  font-size: 23px;
-  font-weight: bold;
   background-color: #dd4545;
 }
+
 .landing-page__sponship-link:hover {
   color: #fff;
   background-color: #bb3232;
