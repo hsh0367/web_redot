@@ -4,8 +4,8 @@
   <link href="{% static './css/main_biz.css' %}" rel="stylesheet">
 {% endblock %}
 
-
-  <div class="landing-page__jumbotron" style="background-image: url('asset/image-top-buniness.png')">
+{% block main %}
+  <div class="landing-page__jumbotron" style="background-image: url('/static/asset/image-top-buniness.png')">
     <div class="container">
       <div class="row">
         <div class="col-md-7">
@@ -39,52 +39,50 @@
       <div class="landing-page__why-redot-features row">
         <div class="landing-page__why-redot-feature-elem col-md-3">
           <div>
-            <img src="./asset/app.png" alt="">
+            <img src="{% static 'asset/app.png' %}" alt="">
           </div>
 
           <h3>어플리케이션 지원</h3>
           <p>
-          모바일 앱 지원으로
+          모바일 앱 지원으로<br>
           일반고객층 확보 가능
           </p>
         </div>
 
         <div class="landing-page__why-redot-feature-elem col-md-3">
           <div>
-            <img src="./asset/rocket.png" alt="">
+            <img src="{% static 'asset/lately.png' %}" alt="">
           </div>
 
           <h3>최신 기종 대응</h3>
           <p>
-            갤럭시 S8이후 출시된
-            최신 스마트폰 대응으로
-            <span class="text-brand">업계 유일 최신 기종 대응</span>
-            가능
+            갤럭시 S8이후 출시된<br>
+            최신 스마트폰 대응으로<br>
+            <span class="text-brand">업계 유일 최신 기종 대응</span>가능
           </p>
         </div>
 
         <div class="landing-page__why-redot-feature-elem col-md-3">
           <div>
-            <img src="./asset/re-station.png" alt="">
+            <img src="{% static 'asset/checked.png' %}" alt="">
           </div>
 
           <h3>Re. station</h3>
           <p>
-            리닷 독점적으로 선정하는
-            <span class="text-brand">전문 가맹점 '리닷 스테이션'
-              독점적인 고객유치
+            리닷 독점적으로 선정하는<br>
+            <span class="text-brand">전문 가맹점 '리닷 스테이션'<br>독점적인 고객유치
             </span>
           </p>
         </div>
 
         <div class="landing-page__why-redot-feature-elem col-md-3">
           <div>
-            <img src="./asset/money.png" alt="">
+            <img src="{% static 'asset/money.png' %}" alt="">
           </div>
 
           <h3>저렴한 가격</h3>
           <p>
-            저렴한 월 제휴비로
+            저렴한 월 제휴비로<br>
             적은 부담, 전문적인 서비스
           </p>
         </div>
@@ -105,28 +103,28 @@
     <div class="landing-page__biz-collect">
       <div class="row landing-page__solutions-row">
         <div class="col-md-offset-2 col-md-8 landing-page__biz-elem-img-wrapper text-center">
-          <img src="./asset/handshake.png" alt="">
+          <img src="{% static 'asset/handshake.png' %}" alt="">
           <h2>리닷과의 제휴가맹 체결</h2>
           <p>리닷과의 제휴가맹을 통해 저렴한 가격으로 리닷의 독점적인 서비스를 제공받을 수 있습니다.</p>
         </div>
       </div>
       <div class="row landing-page__solutions-row">
         <div class="col-md-offset-2 col-md-8 landing-page__biz-elem-img-wrapper text-center">
-          <img src="./asset/solution.png" alt="">
+          <img src="{% static 'asset/solution.png' %}" alt="">
           <h2>Re. PRO의 전문적인 솔루션</h2>
           <p>리닷 프로를 통해 갤럭시 S7 이후의 최신기종의 포렌식과 세부적인 데이터 관리가 가능합니다.</p>
         </div>
       </div>
       <div class="row landing-page__solutions-row">
         <div class="col-md-offset-2 col-md-8 landing-page__biz-elem-img-wrapper text-center">
-          <img src="./asset/customer.png" alt="">
+          <img src="{% static 'asset/customer.png' %}" alt="">
           <h2>독점적인 고객유치</h2>
           <p>400만명의 최신 기종 사용자들과 리닷 앱 사용자를 독점적으로 유치받을 수 있습니다.</p>
         </div>
       </div>
       <div class="row landing-page__solutions-row">
         <div class="col-md-offset-2 col-md-8 landing-page__biz-elem-img-wrapper text-center">
-          <img src="./asset/network.png" alt="">
+          <img src="{% static 'asset/network.png' %}" alt="">
           <h2>Re. Station Network</h2>
           <p>리닷 스테이션 네트워크로 고객 데이터 보존 및 지속적인 솔루션 업데이트를 받을수 있습니다.</p>
         </div>
@@ -137,10 +135,10 @@
     </div>
   </div>
 
-  <div class="landing-page__research" style="background-image: url(&#39;img/image-research.png&#39;)">
+  <div class="landing-page__research" style="background-color: #2d2d2d;">
     <div class="container text-center">
       <h2>
-        <span class="text-brand">리닷</span>은 끊임없이 연구합니다
+        리닷은 끊임없이 연구합니다
       </h2>
 
       <div class="row">
@@ -156,6 +154,6 @@
   </div>
   <div class="landing-page__sponship text-center">
     <h2>기업 제휴 문의 및 안내</h2>
-    <a class="btn landing-page__sponship-link" href="{% url ''  %}">문의 페이지로 이동</a>
+    <a class="btn landing-page__sponship-link" href="{% url 'contact'  %}">문의 페이지로 이동</a>
   </div>
 {% endblock %}
