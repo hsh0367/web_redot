@@ -6,8 +6,8 @@ from .import views
 
 urlpatterns = [
 
-    #url(r'^business/$', views.main_business, name='business'),
-    # url(r'^pr/$', views.pr, name='pr'),
+    url(r'^business/$', views.main_business, name='business'),
+    url(r'^pr/$', views.pr, name='pr'),
     url(r'^$', views.main, name='main'),
     url(r'^contact/$', views.contact, name='contact'),
     url(r'^download/$', views.download, name='download'),

@@ -25,8 +25,8 @@ def main(request):
     return render(request,"redotweb/main_redot.html")
 
 
-#def main_business(request):
-#   return render(request,"redotweb/main_redot_biz.html")
+def main_business(request):
+   return render(request,"redotweb/main_biz_redot.html")
 
 
 def require(request):
@@ -117,8 +117,8 @@ def download(request):
     return render(request,"redotweb/download_redot.html")
 
 
-#def pr(request):
-#    return render(request,"redotweb/pr_redot.html")
+def pr(request):
+    return render(request,"redotweb/pr_redot.html")
 
 
 def signIn(request):
