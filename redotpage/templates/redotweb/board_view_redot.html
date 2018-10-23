@@ -32,14 +32,23 @@
                  <div class="text-left board_content-mid" >
                  <p>{{ board.message|linebreaksbr }}</p>
                   </div>
-                  <div class="landing-page__board-redot pull-left ">
-                    <a class="landing-page__board-redot-link btn" href="{% url 'board_edit'  pk=board.pk  %}">수정</a>
-                    <a class="landing-page__board-redot-link btn" href="{% url 'board_delete' pk=board.pk  %}">삭제</a>
-                    <a class="landing-page__board-redot-link btn" href="{% url 'board' %}">목록으로 돌아가기</a>
+                  <div class="landing-page__modify-redot pull-right">
+                    <a class="landing-page__modify-redot-link btn" href="{% url 'board_user_check'  pk=board.pk  %}">수정</a>
+                    <a class="landing-page__modify-redot-link btn" href="{% url 'board_delete' pk=board.pk  %}">삭제</a>
                   </div>
                 </div>
             </div>
         </div>
+
+        <div class="row landing-page__row">
+          <div class="col-md-offset-2 col-md-8 landing-page__board_view-wrapper2 text-center">
+
+                 <div class="landing-page__board-redot pull-center ">
+                      <a class="landing-page__board-redot-link btn" href="{% url 'board' %}">목록으로 돌아가기</a>
+                  </div>
+                </div>
+        </div>
+
         </div>
       </div>
     </div>
