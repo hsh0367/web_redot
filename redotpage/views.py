@@ -73,6 +73,22 @@ def board_new(request):
     return render(request, 'redotweb/board_new_redot.html', {'form': form})
 
 
+@login_required(login_url='/error/login/')
+def board_edit(request, pk):
+    board = get_object_or_404(Board, number=pk)
+    if request.method == "POST":
+        form = BoardForm(request.POST, instance=board)
+        if form.is_valid():
+            board = form.save(commit=False)
+            board.author = request.user
+            board.published_date = timezone.now()
+            board.save()
+            return redirect('board_view', pk=board.pk)
+    else:
+        form = BoardForm(instance=board)
+    return render(request, 'redotweb/board_new_redot.html', {'form': form})
+
+
 def contact(request):
     form_class = contact_form
 
