@@ -33,6 +33,10 @@ def require(request):
     return render(request,"redotweb/login_require.html")
 
 
+def user_error(request):
+    return render(request,"redotweb/notSameUser.html")
+
+
 def board(request):
     board_obeject = Board.objects.all()
     page = request.GET.get('page', 1)
@@ -73,17 +77,30 @@ def board_new(request):
     return render(request, 'redotweb/board_new_redot.html', {'form': form})
 
 
+def board_user_check(request, pk):
+    board = get_object_or_404(Board, number=pk)
+    if board.user_id == request.user.username:
+        return redirect('board_edit', pk =board.pk)
+    else:
+        return redirect('errorUser')
+
 @login_required(login_url='/error/login/')
 def board_edit(request, pk):
     board = get_object_or_404(Board, number=pk)
+
     if request.method == "POST":
-        form = BoardForm(request.POST, instance=board)
-        if form.is_valid():
-            board = form.save(commit=False)
-            board.author = request.user
-            board.published_date = timezone.now()
-            board.save()
-            return redirect('board_view', pk=board.pk)
+        if board.user_id == request.user.username:
+            form = BoardForm(request.POST, instance=board)
+            if form.is_valid():
+                board.author = request.user
+                board.published_date = timezone.now()
+                board.save()
+                return redirect('board_view', pk=board.pk)
+
+            else:
+                return redirect('board')
+        else:
+            return redirect('errorUser')
     else:
         form = BoardForm(instance=board)
     return render(request, 'redotweb/board_new_redot.html', {'form': form})
@@ -91,8 +108,11 @@ def board_edit(request, pk):
 @login_required(login_url='/error/login/')
 def board_delete(request, pk):
     board = Board.objects.get(number=pk)
-    board.delete()
-    return redirect('board')
+    if board.user_id == request.user.username:
+        board.delete()
+        return redirect('board')
+    else:
+        return redirect('errorUser')
 
 
 def contact(request):
