@@ -34,6 +34,7 @@
                   </div>
                   <div class="landing-page__board-redot pull-left ">
                     <a class="landing-page__board-redot-link btn" href="{% url 'board_edit'  pk=board.pk  %}">수정</a>
+                    <a class="landing-page__board-redot-link btn" href="{% url 'board_delete' pk=board.pk  %}">삭제</a>
                     <a class="landing-page__board-redot-link btn" href="{% url 'board' %}">목록으로 돌아가기</a>
                   </div>
                 </div>

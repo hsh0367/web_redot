@@ -88,6 +88,12 @@ def board_edit(request, pk):
         form = BoardForm(instance=board)
     return render(request, 'redotweb/board_new_redot.html', {'form': form})
 
+@login_required(login_url='/error/login/')
+def board_delete(request, pk):
+    board = Board.objects.get(number=pk)
+    board.delete()
+    return redirect('board')
+
 
 def contact(request):
     form_class = contact_form

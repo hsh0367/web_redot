@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^board/view/(?P<pk>\d+)/$', views.board_view, name='board_view'),
     url(r'^board/new/$', views.board_new, name='board_new'),
     url(r'^board/(?P<pk>\d+)/edit/$', views.board_edit, name = 'board_edit'),
-
+    url(r'^board/(?P<pk>\d+)/delete/$', views.board_delete, name = 'board_delete'),
     # 이메일인증 및 리갭챠 구현전까지 회원가입 막음
     # 이메일 인증 회원가입 테스트
     url( r'^register/$', views.signup, name='register'),
