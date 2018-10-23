@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block css %}
+  <link href="{% static './css/login_require.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+   <div class="redotpage-title text-center">
+        <div class="container">
+        <h1>잘못된 접근</h1>
+        </div>
+    </div>
+
+  <div class="landing-page__login-redot" style="background-color : white;" >
+
+    <div class="landing-page__login-redot-contnet">
+    <div class="container">
+      <div class="row landing-page__solutions-row">
+        <div class="col-md-offset-4 col-md-4 landing-page__login-wrapper text-center">
+            <h3>같은 사용자가 아닙니다.</h3>
+            <div class="landing-page__login">
+            <a class="btn landing-page__login-link" href="{% url 'board' %}">게시판이동</a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
