@@ -65,7 +65,4 @@ class contact_form(forms.Form):
     contact_name = forms.CharField(label='Contact Name', max_length=255,widget=forms.TextInput(attrs={'placeholder': ' 성명 (업체명)'}))
     contact_email = forms.CharField(label='Contact Email', max_length=255,widget=forms.EmailInput(attrs={'placeholder': ' 이메일'}))
 
-    contact_message = forms.CharField(
-        required=True,
-        widget=forms.Textarea
-    )
+    contact_message = forms.CharField(required=True,widget=forms.Textarea)
