@@ -30,4 +30,4 @@ Thumbs.db
 *.splite3
 __pycache__
 /redotweb/
-
+/migrations/
