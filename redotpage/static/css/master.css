@@ -70,12 +70,16 @@ body {
   width: 100%;
 }
 */
+
 .topnav-list > li > a:hover,
 .topnav-list > li > a:focus {
   background-color: #efefef;
   color: #2d2d2d;
 }
-
+.topnav-list > li > logo-wrapper:hover,
+.topnav-list > li > logo-wrapper:focus{
+  background-color: #efefef;
+}
 .topnav-list > .logo-wrapper {
   display: inline-block;
   width: 84px;
