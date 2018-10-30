@@ -47,6 +47,11 @@ thead {
   font-weight: 500;
 
 }
+tbody{
+    font-size: 10px;
+
+}
+
 th {
 
     border-right-style: solid;
@@ -65,11 +70,18 @@ tr > td{
     margin-top: 32px;
 
 }
+.title > a{
+    font-family: sans-serif;
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
 a{
     color:#2d2d2d;
     text-decoration: none !important;
-
-}
+    }
 
 
 .vertical-align {
