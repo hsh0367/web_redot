@@ -39,7 +39,11 @@
                             <tr>
                                 <div class="row vertical-align">
                                     <td class="col-lg-1">{{ a.number }}</td>
-                                    <td class="col-lg-6"><a href="{% url 'board_view' pk=a.pk %}">{{ a.board_title }}</a></td>
+
+                                    <td class="title col-lg-6"><a href="{% url 'board_view' pk=a.pk %}">
+                                         {{a.board_title|truncatechars:9}}
+
+                                    </a></td>
                                     <td class="col-lg-2">{{ a.user_id }}</td>
                                     <td class="col-lg-2"> {{ a.create_date }} </td>
                                     <td class="col-lg-1"> {{ a.hit }} </td>
@@ -88,4 +92,11 @@
         </div>
       </div>
   </div>
+<script>
+jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+</script>
 {% endblock %}
