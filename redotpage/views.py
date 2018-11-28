@@ -20,27 +20,30 @@ from django.contrib.auth.models import User
 from .token import account_activation_token
 from .Checker import *
 
+def block(request):
+    return render(request,"block.html")
 
 def main(request):
-    return render(request,"redotweb/main_redot.html")
+    return render(request, "redotweb/main_redot.html")
 
 
 def main_business(request):
-   return render(request,"redotweb/main_biz_redot.html")
+    return render(request, "redotweb/main_biz_redot.html")
 
 
 def require(request):
-    return render(request,"redotweb/login_require.html")
+    return render(request, "redotweb/login_require.html")
 
 
 def user_error(request):
-    return render(request,"redotweb/notSameUser.html")
+    return render(request, "redotweb/notSameUser.html")
 
 
 def board(request):
     board_obeject = Board.objects.all()
     page = request.GET.get('page', 1)
     paginator = Paginator(board_obeject, 10)
+
     try:
         boards = paginator.page(page)
     except PageNotAnInteger:
@@ -51,11 +54,11 @@ def board(request):
 
 
 @login_required(login_url='/error/login/')
-def board_view(request,pk):
+def board_view(request, pk):
     board = get_object_or_404(Board, number=pk)
     board.hit += 1
     board.save()
-    return render(request, "redotweb/board_view_redot.html",{'board':board})
+    return render(request, "redotweb/board_view_redot.html", {'board': board})
 
 
 @login_required(login_url='/error/login/')
@@ -64,7 +67,7 @@ def board_new(request):
         form = BoardForm(request.POST)
         if form.is_valid():
             board = Board()
-           # board = form.save(commit=False)
+            # board = form.save(commit=False)
             board.author = request.user
             board.board_title = form.cleaned_data['board_title']
             board.message = form.cleaned_data['message']
@@ -80,9 +83,10 @@ def board_new(request):
 def board_user_check(request, pk):
     board = get_object_or_404(Board, number=pk)
     if board.user_id == request.user.username:
-        return redirect('board_edit', pk =board.pk)
+        return redirect('board_edit', pk=board.pk)
     else:
         return redirect('errorUser')
+
 
 @login_required(login_url='/error/login/')
 def board_edit(request, pk):
@@ -104,6 +108,7 @@ def board_edit(request, pk):
     else:
         form = BoardForm(instance=board)
     return render(request, 'redotweb/board_new_redot.html', {'form': form})
+
 
 @login_required(login_url='/error/login/')
 def board_delete(request, pk):
@@ -128,7 +133,7 @@ def contact(request):
             customer = form.cleaned_data['customer_select']
             question = form.cleaned_data['question_select']
 
-            contact_name =form.cleaned_data['contact_name']
+            contact_name = form.cleaned_data['contact_name']
             contact_email = form.cleaned_data['contact_email']
             form_content = form.cleaned_data['contact_message']
 
@@ -145,7 +150,7 @@ def contact(request):
         content = template.render(context)
 
         email = EmailMessage(
-            "고객 "+contact_name+"이 새로운 접촉 제출되었습니다.",
+            "고객 " + contact_name + "이 새로운 접촉 제출되었습니다.",
             content,
             contact_email,
             ['redot.help@gmail.com'],
@@ -156,11 +161,11 @@ def contact(request):
 
 
 def download(request):
-    return render(request,"redotweb/download_redot.html")
+    return render(request, "redotweb/download_redot.html")
 
 
 def pr(request):
-    return render(request,"redotweb/pr_redot.html")
+    return render(request, "redotweb/pr_redot.html")
 
 
 def signIn(request):
@@ -168,8 +173,8 @@ def signIn(request):
         login_form = LoginForm(request.POST)
         username = request.POST['username']
         password = request.POST['password']
-        user = authenticate(username = username, password = password)
-         # user = authenticate(request)
+        user = authenticate(username=username, password=password)
+        # user = authenticate(request)
         if user is not None:
             login(request, user)
             return redirect('/')
@@ -184,17 +189,15 @@ def signIn(request):
 # test download function
 
 def testdownload(request):
-
     respond_as_attachment(request, '/Users/heosanghun/Desktop/redot/redotweb/redotpage/static/asset/app.png', 'app.png')
     return redirect('download')
+
 
 # email athutication signup
 
 def signup(request):
-
     if request.method == 'POST':
         form = SignupForm(request.POST)
-
 
         if form.is_valid():
             user = form.save(commit=False)
@@ -206,29 +209,29 @@ def signup(request):
             password1 = form.cleaned_data['password1']
             password2 = form.cleaned_data['password2']
 
-            #check = Checker()
-            #checks = check.validate_value(email,username,password1,password2)
-            #if len(checks) == 0:
+            # check = Checker()
+            # checks = check.validate_value(email,username,password1,password2)
+            # if len(checks) == 0:
             user.save()
             current_site = get_current_site(request)
             mail_subject = '리닷사이트 계정등록 이메일 인증 링크'
             message = render_to_string('account_activate_email.html', {
-                    'user': user,
-                    'domain': current_site.domain,
-                    'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
-                    'token': account_activation_token.make_token(user),
+                'user': user,
+                'domain': current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
+                'token': account_activation_token.make_token(user),
             })
-            #to_email = form.cleaned_data['email']
+            # to_email = form.cleaned_data['email']
             email = EmailMessage(
-                        mail_subject, message, to=[email]
+                mail_subject, message, to=[email]
             )
             email.content_subtype = 'html'
             email.send()
-            return HttpResponse('이메일주소에서 리닷사이트 회원가입을 위한 링크를 확인해주세요',)
+            return HttpResponse('이메일주소에서 리닷사이트 회원가입을 위한 링크를 확인해주세요', )
 
-           # else:
-           #     form = SignupForm()
-            #    return render(request, 'redotweb/register_redot.html', {'form': form, 'checks': checks,})
+        # else:
+        #     form = SignupForm()
+        #    return render(request, 'redotweb/register_redot.html', {'form': form, 'checks': checks,})
     else:
         form = SignupForm()
     return render(request, 'redotweb/register_redot.html', {'form': form, })
@@ -245,12 +248,12 @@ def activate(request, uidb64, token):
         user.save()
         login(request, user)
         # return redirect('home')
-        return render(request,'account_activate_complate.html')
+        return render(request, 'account_activate_complate.html')
     else:
         return HttpResponse('올바르지 않은 링크입니다.')
 
 
-#file download test
+# file download test
 def respond_as_attachment(request, file_path, original_filename):
     fp = open(file_path, 'rb')
     response = HttpResponse(fp.read())
