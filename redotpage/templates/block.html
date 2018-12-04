@@ -1,4 +1,6 @@
-	<!doctype html>
+{% load staticfiles %}
+
+<!doctype html>
 <html lang="ko">
 <head>
  <meta charset="utf-8">
@@ -14,28 +16,25 @@
         font-family: 'Noto Sans Korean', sans-serif;
     }
     body {
-    background-color: #fff;
-    background-image:
-    linear-gradient(90deg, transparent 79px, #F2F2F2 79px, #F2F2F2 81px, transparent 81px),
-    linear-gradient(#F2F2F2 .1em, transparent .1em);
-    background-size: 100% 1.2em;
-    }
+    background-color: #28283d;
 
-    p {
-        margin-top: 19px;
-        margin-right: 10px;
-        text-align :right;
     }
-    h1 {
-        font-size : 40px;
-        text-align: center;
-        margin-top: 195px;
-    }
+ 
+.layer{position:absolute;display:table;top:0;left:0;width:100%;height:100%}
+.layer .layer_inner{display:table-cell;text-align:center;vertical-align:middle}
+.layer .content{display:inline-block;}
 </style>
 </head>
 <body>
-<p wrapper>연락 및 문의 : nsh1189@gmail.com </p>
-<h1>공사중</h1>
+
+
+
+ <div class="layer">
+  <div class="layer_inner">
+    <div class="content"><img src="{% static 'asset/logo.svg' %}" width="100%" height="100%"></div>
+  </div>
+</div>
+
 </body>
 </html>
 
